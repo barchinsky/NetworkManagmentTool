@@ -1,8 +1,8 @@
 #! /usr/bin/env python
+# -*- coding: utf-8 -*-
 
 from pysnmp.entity.rfc3413.oneliner import cmdgen
 import xml.etree.ElementTree as ET
-#import DeviceActivi
 from lxml import etree
 
 class NetworkManager:
@@ -38,6 +38,7 @@ class NetworkManager:
                 self.devices.append(self.varBinds)
 
         self.makeXml()
+        self.getInventory()
 
     def printDeviceInfo(self):
         for dev in self.devices:
@@ -46,7 +47,7 @@ class NetworkManager:
             print "----------------------------------------------------"
 
     def printToFile(self):
-        output = open("device_info.txt",'r+')
+        output = open("data/device_info.txt",'r+')
         for dev in self.devices:
             for name,val in dev:
                 output.write(str(name) + '\n' + str(val) + '\n' )
@@ -54,16 +55,20 @@ class NetworkManager:
 
     def makeXml(self):
         devices = []
-        xmlFile = open('device_info.xml','r+')
-        out = open('out','r+')
+        xmlFile = open('data/xml/device_info.xml','r+')
+        out = open('data/out','r+')
         for dev in self.devices:
             for name,val in dev:
                 out.write(str(val)+'&&')
             out.write('\n')
 
         out.close()
-        infile = open('out','r+')
+        infile = open('data/out','r+')
         devList = infile.readlines()
+
+        root = etree.Element('Device')
+        doc = etree.ElementTree(root)
+        xml = etree.Element('xml')
 
         performanceData = []
         for dev in devList:
@@ -116,13 +121,23 @@ class NetworkManager:
             bandLoad = etree.Element('bandLoad')
             bandLoad.text = performanceData[10]
             root.append(bandLoad)
-            
+
+            xml.append(root)
+
             #print etree.tostring(root, pretty_print=True)
-            xmlFile.write(etree.tostring(root,pretty_print=True))
+        xmlFile.write(etree.tostring(xml,pretty_print=True))
 
         #print performanceData
 
+    def getInventory(self):
+        infile = open('src/devices.txt','r')
+
+        data = infile.readline()
+
+        print data[0]
+
+
 '''--------------------------debug zone-------------------------'''
-nm = NetworkManager('192.168.111.138',(5323,5324,5324))
+nm = NetworkManager('192.168.111.138',(5323,5324,5325,5326))
 nm.getDeviceInfo()
 #nm.printToFile()
