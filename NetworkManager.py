@@ -4,13 +4,17 @@
 from pysnmp.entity.rfc3413.oneliner import cmdgen
 import xml.etree.ElementTree as ET
 from lxml import etree
+import re
 
 class NetworkManager:
-    def __init__(self,_ip,_ports):
+    def __init__(self,_ip):
         self.ip = _ip
-        self.ports = _ports
+        self.ports = ()
         self.cmdGen = cmdgen.CommandGenerator()
         self.devices = []
+
+        self.getDevicePorts()
+        self.getDeviceInfo()
 
     def getDeviceInfo(self):
         for port in self.ports:
@@ -129,15 +133,17 @@ class NetworkManager:
 
         #print performanceData
 
-    def getInventory(self):
+    def getDevicePorts(self):
         infile = open('src/devices.txt','r')
 
         data = infile.readline()
 
-        print data[0]
+        ports = []
+        ports = re.findall('\d+',data)
+        self.ports = ports
 
 
 '''--------------------------debug zone-------------------------'''
-nm = NetworkManager('192.168.111.138',(5323,5324,5325,5326))
-nm.getDeviceInfo()
+nm = NetworkManager('192.168.111.138')
+#nm.getDeviceInfo()
 #nm.printToFile()
