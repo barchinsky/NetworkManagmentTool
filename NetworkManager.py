@@ -17,10 +17,13 @@ class NetworkManager:
         self.ports = ()
         self.cmdGen = cmdgen.CommandGenerator()
         self.devices = []
+        self.inventory = []
 
         self.getDevicePorts()
         self.callDevices()
-        self.printDeviceInfo()
+        #self.printDeviceInfo()
+        self.printInventory()
+
 
     def callDevices(self):
         for port in self.ports:
@@ -89,6 +92,7 @@ class NetworkManager:
             sysDescr = etree.Element(SYSDESCR)
             sysDescr.text = performanceData[1]
             root.append(sysDescr)
+            self.inventory.append(performanceData[1])
 
             sysLocation = etree.Element(SYSLOCATION)
             sysLocation.text = performanceData[2]
@@ -146,6 +150,10 @@ class NetworkManager:
         ports = []
         ports = re.findall('\d+',data)
         self.ports = ports
+
+    def printInventory(self):
+        for dev in self.inventory:
+            print dev,'\n'
 
 
 '''--------------------------debug zone-------------------------'''
