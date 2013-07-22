@@ -1,10 +1,15 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import sys
 from pysnmp.entity.rfc3413.oneliner import cmdgen
 import xml.etree.ElementTree as ET
 from lxml import etree
 import re
+#from src.MyLib import *
+
+#sys.path.append("/home/max/TF/NetworkManagmentTool/src")
+from MyLib import *
 
 class NetworkManager:
     def __init__(self,_ip):
@@ -14,9 +19,10 @@ class NetworkManager:
         self.devices = []
 
         self.getDevicePorts()
-        self.getDeviceInfo()
+        self.callDevices()
+        self.printDeviceInfo()
 
-    def getDeviceInfo(self):
+    def callDevices(self):
         for port in self.ports:
             errorIndication, errorStatus, errorIndex, self.varBinds = self.cmdGen.getCmd(
             cmdgen.CommunityData('public'),
@@ -42,7 +48,7 @@ class NetworkManager:
                 self.devices.append(self.varBinds)
 
         self.makeXml()
-        self.getInventory()
+        #self.getInventory()
 
     def printDeviceInfo(self):
         for dev in self.devices:
@@ -70,8 +76,8 @@ class NetworkManager:
         infile = open('data/out','r+')
         devList = infile.readlines()
 
-        root = etree.Element('Device')
-        doc = etree.ElementTree(root)
+        #root = etree.Element('Device')
+        #doc = etree.ElementTree(root)
         xml = etree.Element('xml')
 
         performanceData = []
@@ -83,46 +89,48 @@ class NetworkManager:
             devId.text = performanceData[0]
             root.append(devId)
 
-            sysDescr = etree.Element('sysDescr')
+            sysDescr = etree.Element(SYSDESCR)
             sysDescr.text = performanceData[1]
             root.append(sysDescr)
 
-            sysLocation = etree.Element('sysLocation')
+            sysLocation = etree.Element(SYSLOCATION)
             sysLocation.text = performanceData[2]
             root.append(sysLocation)
 
-            freePorts = etree.Element('freePorts')
+            freePorts = etree.Element(FREEPORTS)
             freePorts.text = performanceData[3]
             root.append(freePorts)
 
-            usedPorts = etree.Element('usedPorts')
+            usedPorts = etree.Element(USEDPORTS)
             usedPorts.text = performanceData[4]
             root.append(usedPorts)
 
-            net = etree.Element('net')
-            netUp = etree.Element('netUp')
+            #net = etree.Element('net')
+            netUp = etree.Element(NETUP)
             netUp.text = performanceData[5]
+            root.append(netUp)
 
-            netDown = etree.Element('netDown')
+            netDown = etree.Element(NETDOWN)
             netDown.text = performanceData[6]
+            root.append(netDown)
 
-            net.append(netUp)
-            net.append(netDown)
-            root.append(net)
+            #net.append(netUp)
+            #net.append(netDown)
+            #root.append(net)
 
-            fanSpeed = etree.Element('fanSpeed')
+            fanSpeed = etree.Element(FANSPEED)
             fanSpeed.text = performanceData[7]
             root.append(fanSpeed)
             
-            voltage = etree.Element('voltage')
+            voltage = etree.Element(VOLTAGE)
             voltage.text = performanceData[8]
             root.append(voltage)
 
-            temp = etree.Element('temp')
+            temp = etree.Element(TEMP)
             temp.text = performanceData[9]
             root.append(temp)
 
-            bandLoad = etree.Element('bandLoad')
+            bandLoad = etree.Element(BANDLOAD)
             bandLoad.text = performanceData[10]
             root.append(bandLoad)
 
