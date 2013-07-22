@@ -7,7 +7,7 @@ def lol():
 DEVTYPE = {0:"router",1:"dslam"}
 SYSDESCR = "sysDescr"
 SYSLOCATION = "sysLocation"
-FREEPORTS = "frePorts"
+FREEPORTS = "freePorts"
 USEDPORTS = "usedPorts"
 NETUP = "netUp"
 NETDOWN = "netDown"

@@ -68,6 +68,7 @@ class NetworkManager:
     def makeXml(self):
         devices = []
         xmlFile = open('data/xml/device_info.xml','r+')
+        
         out = open('data/out','r+')
         for dev in self.devices:
             for name,val in dev:
@@ -75,72 +76,63 @@ class NetworkManager:
             out.write('\n')
 
         out.close()
-        infile = open('data/out','r+')
-        devList = infile.readlines()
 
         xml = etree.Element('xml')
         performanceData = []
 
-        for dev in devList:
-            performanceData = dev.split('&&')
+        with open('data/out','r') as infile:
+            for line in infile:
+                performanceData = line.split('&&')
             
-            root = etree.Element("Device")
-            devId = etree.Element('Id')
-            devId.text = performanceData[0]
-            root.append(devId)
+                root = etree.Element("Device")
+                devId = etree.Element("Id")
+                devId.text = performanceData[0]
+                root.append(devId)
 
-            sysDescr = etree.Element(SYSDESCR)
-            sysDescr.text = performanceData[1]
-            root.append(sysDescr)
-            self.inventory.append(performanceData[1])
+                sysDescr = etree.Element(SYSDESCR)
+                sysDescr.text = performanceData[1]
+                root.append(sysDescr)
+                self.inventory.append(performanceData[1])
 
-            sysLocation = etree.Element(SYSLOCATION)
-            sysLocation.text = performanceData[2]
-            root.append(sysLocation)
+                sysLocation = etree.Element(SYSLOCATION)
+                sysLocation.text = performanceData[2]
+                root.append(sysLocation)
 
-            freePorts = etree.Element(FREEPORTS)
-            freePorts.text = performanceData[3]
-            root.append(freePorts)
+                freePorts = etree.Element(FREEPORTS)
+                freePorts.text = performanceData[3]
+                root.append(freePorts)
 
-            usedPorts = etree.Element(USEDPORTS)
-            usedPorts.text = performanceData[4]
-            root.append(usedPorts)
+                usedPorts = etree.Element(USEDPORTS)
+                usedPorts.text = performanceData[4]
+                root.append(usedPorts)
 
-            #net = etree.Element('net')
-            netUp = etree.Element(NETUP)
-            netUp.text = performanceData[5]
-            root.append(netUp)
+                netUp = etree.Element(NETUP)
+                netUp.text = performanceData[5]
+                root.append(netUp)
 
-            netDown = etree.Element(NETDOWN)
-            netDown.text = performanceData[6]
-            root.append(netDown)
+                netDown = etree.Element(NETDOWN)
+                netDown.text = performanceData[6]
+                root.append(netDown)
 
-            #net.append(netUp)
-            #net.append(netDown)
-            #root.append(net)
-
-            fanSpeed = etree.Element(FANSPEED)
-            fanSpeed.text = performanceData[7]
-            root.append(fanSpeed)
+                fanSpeed = etree.Element(FANSPEED)
+                fanSpeed.text = performanceData[7]
+                root.append(fanSpeed)
             
-            voltage = etree.Element(VOLTAGE)
-            voltage.text = performanceData[8]
-            root.append(voltage)
+                voltage = etree.Element(VOLTAGE)
+                voltage.text = performanceData[8]
+                root.append(voltage)
 
-            temp = etree.Element(TEMP)
-            temp.text = performanceData[9]
-            root.append(temp)
+                temp = etree.Element(TEMP)
+                temp.text = performanceData[9]
+                root.append(temp)
 
-            bandLoad = etree.Element(BANDLOAD)
-            bandLoad.text = performanceData[10]
-            root.append(bandLoad)
+                bandLoad = etree.Element(BANDLOAD)
+                bandLoad.text = performanceData[10]
+                root.append(bandLoad)
 
-            xml.append(root)
+                xml.append(root)
 
-            #print etree.tostring(root, pretty_print=True)
-        xmlFile.write(etree.tostring(xml,pretty_print=True))
-
-        #print performanceData
+            xmlFile.write(etree.tostring(xml,pretty_print=True))
 
     def getDevicePorts(self):
         infile = open('src/devices.txt','r')
