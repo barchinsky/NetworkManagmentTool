@@ -9,7 +9,7 @@ import re
 #from src.MyLib import *
 
 #sys.path.append("/home/max/TF/NetworkManagmentTool/src")
-from MyLib import *
+from CONST import *
 
 class NetworkManager:
     def __init__(self,_ip):
@@ -27,17 +27,17 @@ class NetworkManager:
             errorIndication, errorStatus, errorIndex, self.varBinds = self.cmdGen.getCmd(
             cmdgen.CommunityData('public'),
             cmdgen.UdpTransportTarget((self.ip, port)),
-            '.1.3.6.1.2.1.3.6.0',
-            '.1.3.6.1.2.1.1.1.0',
-            '.1.3.6.1.2.1.5.8.0',
-            '.1.3.6.1.2.1.2.1.0',
-            '.1.3.6.1.2.1.2.2.0',
-            '.1.3.6.1.2.1.4.1.0',
-            '.1.3.6.1.2.1.4.2.0',
-            '.1.3.6.1.2.1.3.7.0',
-            '.1.3.6.1.2.1.3.1.0',
-            '.1.3.6.1.2.1.3.1.0',
-            '.1.3.6.1.2.1.4.3.0',
+            O_ID,
+            O_DESCR,
+            O_LOCATION,
+            O_FPORTS,
+            O_UPORTS,
+            O_NETUP,
+            O_NETDOWN,
+            O_FANSPEED,
+            O_VOLTAGE,
+            O_TEMP,
+            O_BANDLOAD,
             lookupNames=True, lookupValues=True)
 
             if errorIndication:
@@ -48,7 +48,6 @@ class NetworkManager:
                 self.devices.append(self.varBinds)
 
         self.makeXml()
-        #self.getInventory()
 
     def printDeviceInfo(self):
         for dev in self.devices:
@@ -76,11 +75,9 @@ class NetworkManager:
         infile = open('data/out','r+')
         devList = infile.readlines()
 
-        #root = etree.Element('Device')
-        #doc = etree.ElementTree(root)
         xml = etree.Element('xml')
-
         performanceData = []
+
         for dev in devList:
             performanceData = dev.split('&&')
             
