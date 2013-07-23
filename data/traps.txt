@@ -1,0 +1,10 @@
+0:lowVoltage
+1:fanStatus Fail
+2:temp Hight
+3:linkDown
+4:linkUp
+5:shutDown
+6:coldStart
+7:hardReset
+8:CRC Frame
+9:DDoS detected

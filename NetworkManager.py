@@ -8,7 +8,7 @@ from lxml import etree
 import re
 #from src.MyLib import *
 
-#sys.path.append("/home/max/TF/NetworkManagmentTool/src")
+sys.path.append("/home/max/TF/NetworkManagmentTool/src")
 from CONST import *
 
 class NetworkManager:
