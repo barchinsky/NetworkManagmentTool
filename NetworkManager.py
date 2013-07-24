@@ -8,7 +8,7 @@ from lxml import etree
 import re
 #from src.MyLib import *
 
-sys.path.append("/home/max/TF/NetworkManagmentTool/src")
+sys.path.append("./src")
 from CONST import *
 
 class NetworkManager:
@@ -22,7 +22,7 @@ class NetworkManager:
         self.getDevicePorts()
         self.callDevices()
         #self.printDeviceInfo()
-        self.printInventory()
+        #self.printInventory()
 
 
     def callDevices(self):
@@ -44,9 +44,11 @@ class NetworkManager:
             lookupNames=True, lookupValues=True)
 
             if errorIndication:
-                print (errorIndication,port)
+                #print (errorIndication,port),"Call device Error."
+                raise Exception("Call device error.Port "+port)
             elif errorStatus:
-                print (errorStatus,port)
+                #print (errorStatus,port),"Call device Error."
+                raise Exception("Error occured: port-"+port+" status-"+errorStatus)
             else:
                 self.devices.append(self.varBinds)
 
@@ -147,8 +149,33 @@ class NetworkManager:
         for dev in self.inventory:
             print dev,'\n'
 
+    def printDataForDevice(self,info_type,device_id):
+        dic = self.getDictionary()
+        errorIndication, errorStatus, errorIndex, varBinds = self.cmdGen.getCmd(
+            cmdgen.CommunityData('public'),
+            cmdgen.UdpTransportTarget((self.ip, device_id)),
+            dic[info_type],
+            lookupNames=True, lookupValues=True)
+
+        if errorIndication:
+            raise Exception("Call device error.Port "+port)
+        elif errorStatus:
+            raise Exception("Error occured: port-"+port+" status-"+errorStatus)
+        else:
+            for name,val in varBinds:
+                print '-----------------------------\n',val
+
+    def getDictionary(self):
+        dictionary = {}
+        with open("data/mib",'r') as f:
+            for line in f:
+                (val,key) = line.split('-')
+                dictionary[str(key.rstrip())] = str(val)
+        return dictionary
+
+
 
 '''--------------------------debug zone-------------------------'''
-nm = NetworkManager('192.168.111.138')
+#nm = NetworkManager('192.168.111.138')
 #nm.getDeviceInfo()
 #nm.printToFile()

@@ -5,10 +5,8 @@
     <sysLocation>Ukraine</sysLocation>
     <freePorts>20</freePorts>
     <usedPorts>20</usedPorts>
-    <net>
-      <netUp>500</netUp>
-      <netDown>8000</netDown>
-    </net>
+    <netUp>500</netUp>
+    <netDown>8000</netDown>
     <fanSpeed>5</fanSpeed>
     <voltage>50</voltage>
     <temp>50</temp>
@@ -20,10 +18,8 @@
     <sysLocation>Ukraine</sysLocation>
     <freePorts>25</freePorts>
     <usedPorts>15</usedPorts>
-    <net>
-      <netUp>5630</netUp>
-      <netDown>10568</netDown>
-    </net>
+    <netUp>5630</netUp>
+    <netDown>10568</netDown>
     <fanSpeed>5</fanSpeed>
     <voltage>50</voltage>
     <temp>50</temp>
@@ -35,10 +31,8 @@
     <sysLocation>Ukraine</sysLocation>
     <freePorts>5</freePorts>
     <usedPorts>35</usedPorts>
-    <net>
-      <netUp>10895</netUp>
-      <netDown>25486</netDown>
-    </net>
+    <netUp>10895</netUp>
+    <netDown>25486</netDown>
     <fanSpeed>5</fanSpeed>
     <voltage>60</voltage>
     <temp>60</temp>
@@ -50,13 +44,89 @@
     <sysLocation>Ukraine</sysLocation>
     <freePorts>30</freePorts>
     <usedPorts>10</usedPorts>
-    <net>
-      <netUp>2005</netUp>
-      <netDown>8000</netDown>
-    </net>
+    <netUp>2005</netUp>
+    <netDown>8000</netDown>
     <fanSpeed>5</fanSpeed>
     <voltage>40</voltage>
     <temp>40</temp>
+    <bandLoad>100</bandLoad>
+  </Device>
+  <Device>
+    <Id>0005</Id>
+    <sysDescr>Cisco IOS Software, 2013 Software (C1841-ADVSECURITYK9-M), Version 12.2(16b), RELEASE SOFTWARE (fc3)Technical Support: http://www.cisco.com/techsupportCopyright (c) 1986-2013 by Cisco Systems, Inc.Compiled Wed 19-Dec-07 23:14 by prod_rel_team</sysDescr>
+    <sysLocation>Ukraine</sysLocation>
+    <freePorts>23</freePorts>
+    <usedPorts>17</usedPorts>
+    <netUp>18954</netUp>
+    <netDown>459785</netDown>
+    <fanSpeed>5</fanSpeed>
+    <voltage>45</voltage>
+    <temp>45</temp>
+    <bandLoad>100</bandLoad>
+  </Device>
+  <Device>
+    <Id>0006</Id>
+    <sysDescr>Cisco IOS Software, 2013 Software (C1841-ADVSECURITYK9-M), Version 12.2(16b), RELEASE SOFTWARE (fc3)Technical Support: http://www.cisco.com/techsupportCopyright (c) 1986-2013 by Cisco Systems, Inc.Compiled Wed 19-Dec-07 23:14 by prod_rel_team</sysDescr>
+    <sysLocation>Ukraine</sysLocation>
+    <freePorts>2</freePorts>
+    <usedPorts>38</usedPorts>
+    <netUp>89423</netUp>
+    <netDown>8789452</netDown>
+    <fanSpeed>5</fanSpeed>
+    <voltage>62</voltage>
+    <temp>62</temp>
+    <bandLoad>100</bandLoad>
+  </Device>
+  <Device>
+    <Id>0007</Id>
+    <sysDescr>Cisco IOS Software, 2013 Software (C1841-ADVSECURITYK9-M), Version 12.2(16b), RELEASE SOFTWARE (fc3)Technical Support: http://www.cisco.com/techsupportCopyright (c) 1986-2013 by Cisco Systems, Inc.Compiled Wed 19-Dec-07 23:14 by prod_rel_team</sysDescr>
+    <sysLocation>Ukraine</sysLocation>
+    <freePorts>20</freePorts>
+    <usedPorts>20</usedPorts>
+    <netUp>100000</netUp>
+    <netDown>80000</netDown>
+    <fanSpeed>5</fanSpeed>
+    <voltage>50</voltage>
+    <temp>50</temp>
+    <bandLoad>100</bandLoad>
+  </Device>
+  <Device>
+    <Id>0008</Id>
+    <sysDescr>Cisco IOS Software, 2013 Software (C1841-ADVSECURITYK9-M), Version 12.2(16b), RELEASE SOFTWARE (fc3)Technical Support: http://www.cisco.com/techsupportCopyright (c) 1986-2013 by Cisco Systems, Inc.Compiled Wed 19-Dec-07 23:14 by prod_rel_team</sysDescr>
+    <sysLocation>Ukraine</sysLocation>
+    <freePorts>2</freePorts>
+    <usedPorts>38</usedPorts>
+    <netUp>89423</netUp>
+    <netDown>8789452</netDown>
+    <fanSpeed>5</fanSpeed>
+    <voltage>62</voltage>
+    <temp>62</temp>
+    <bandLoad>100</bandLoad>
+  </Device>
+  <Device>
+    <Id>0009</Id>
+    <sysDescr>Cisco IOS Software, 2013 Software (C1841-ADVSECURITYK9-M), Version 12.2(16b), RELEASE SOFTWARE (fc3)Technical Support: http://www.cisco.com/techsupportCopyright (c) 1986-2013 by Cisco Systems, Inc.Compiled Wed 19-Dec-07 23:14 by prod_rel_team</sysDescr>
+    <sysLocation>Ukraine</sysLocation>
+    <freePorts>26</freePorts>
+    <usedPorts>14</usedPorts>
+    <netUp>10895</netUp>
+    <netDown>25486</netDown>
+    <fanSpeed>5</fanSpeed>
+    <voltage>53</voltage>
+    <temp>53</temp>
+    <bandLoad>100</bandLoad>
+  </Device>
+  <Device>
+    <Id>0010</Id>
+    <sysDescr>Cisco IOS Software, 2013 Software (C1841-ADVSECURITYK9-M), Version 12.2(16b), RELEASE SOFTWARE (fc3)Technical Support: http://www.cisco.com/techsupportCopyright (c) 1986-2013 by Cisco Systems, Inc.Compiled Wed 19-Dec-07 23:14 by prod_rel_team</sysDescr>
+    <sysLocation>Ukraine</sysLocation>
+    <freePorts>27</freePorts>
+    <usedPorts>13</usedPorts>
+    <netUp>2005</netUp>
+    <netDown>8000</netDown>
+    <fanSpeed>5</fanSpeed>
+    <voltage>44</voltage>
+    <temp>44</temp>
     <bandLoad>100</bandLoad>
   </Device>
 </xml>

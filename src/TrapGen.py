@@ -6,6 +6,8 @@ from pysnmp.proto.api import v2c
 import datetime
 import random
 import time
+import cx_Oracle
+from print_cursor import PrintCursor
 
 class TrapGen:
     def __init__(self):
@@ -33,11 +35,11 @@ class TrapGen:
 
     def generate(self):
         ts = time.time()
-        st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+        #st = datetime.datetime#.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
 
-        dev_id = (0,1,2,3,4,5)
+        dev_id = (1,2,3,4,5)
 
-        self.data = str(dev_id[random.randint(0,4)]) +'|'+ str(self.dictionary[random.randint(0,9)])+'|'+str(st)
+        self.data = str(dev_id[random.randint(0,4)]) +'|'+ str(self.dictionary[random.randint(0,9)])+'|'+str(ts)
 
     def getDictionary(self):
         with open("data/traps.txt",'r') as infile:
@@ -45,9 +47,19 @@ class TrapGen:
                 key,value = line.split(':')
                 self.dictionary[int(key)] = str(value).rstrip()
 
+    def getDeviceCLLI(self):
+        con = cx_Oracle.connect('orcdb/passw0rd@192.168.111.138/orcl')
+        print "Connected"
+
+        data = []
+        cur = con.cursor()
+        cur.execute("select ID from SYSTEM.DEVICE")
+        data = cur.fetchall()
+        print data[0]
 
 if __name__ == '__main__':
     obj = TrapGen()
     while(1):
-        obj.send_trap()
-        time.sleep(random.randint(3,5))
+        #obj.send_trap()
+        #time.sleep(random.randint(3,5))
+        obj.getDeviceCLLI()

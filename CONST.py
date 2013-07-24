@@ -1,7 +1,3 @@
-#! /usr/bin/env python
-
-def lol():
-    print "Lol"
 
 # xml constants
 DEVTYPE = {0:"router",1:"dslam"}
