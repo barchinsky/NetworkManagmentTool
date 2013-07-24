@@ -5,6 +5,7 @@ def lol():
 
 # xml constants
 DEVTYPE = {0:"router",1:"dslam"}
+ID = "Id"
 SYSDESCR = "sysDescr"
 SYSLOCATION = "sysLocation"
 FREEPORTS = "freePorts"
