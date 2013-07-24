@@ -13,7 +13,7 @@ def GetTrapData(varBinds):
     for oid, val in varBinds:
       
         tmp=val.prettyPrint()
-        #Id = 0
+       
         if tmp.find("string-value")!=-1:
             i = tmp.rfind("string-value")
             l = len("string-value")
@@ -22,15 +22,14 @@ def GetTrapData(varBinds):
             #print data
             Inf = data.split('|')
             print Inf[0]
-            cur.execute("insert into SYSTEM.TRAP(IDDEVICE,TRAP,TIME) values(:IdDev,:trap,:time)",{'IdDev':Inf[0],'trap':Inf[1],'time':Inf[2]})
+            cur.callproc("SYSTEM.add_trap_info",[Inf[0],Inf[1],float(Inf[2].rstrip())])
             con.commit()
-            #Id+=1
+           
             
             cur.execute("select * from SYSTEM.TRAP")
             print cur.fetchall()
  
-    cur.close()
-    print "End."
+    cur.close() 
     con.close()
  
 
@@ -64,7 +63,7 @@ transportDispatcher.registerRecvCbFun(cbFun)
 
 # UDP/IPv4
 transportDispatcher.registerTransport(
-    udp.domainName, udp.UdpSocketTransport().openServerMode(('192.168.111.127', 5050))
+    udp.domainName, udp.UdpSocketTransport().openServerMode(('192.168.111.130', 5050))
 )
 
 transportDispatcher.jobStarted(1)

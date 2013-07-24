@@ -77,12 +77,14 @@ class ConnectionDB:
             #self.cur.execute("select * from SYSTEM.PERFORMANCE_DATA")
             #print self.cur.fetchall()
             try:
-                self.cur.execute("insert into SYSTEM.PERFORMANCE_DATA(ID,SYSDESCR,SYSLOC,USEDPORTS,NETUP,NETDOWN,VOLTAGE,FAN,TEMPERATURE,BANDWIDTHLOAD,FREEPORTS) values(:Id,:sysD,:sysL,:uP,:nU,:nD,:vol,:fan,:t,:bwl,:fP)",{'Id':Id[i],'sysD':sysDescr[i],'sysL':sysLocation[i],'uP':usedPorts[i],'nU':netUp[i],'nD':netDown[i],'vol':voltage[i],'fan':fanSpeed[i],'t':temp[i],'bwl':bandLoad[i],'fP':freePorts[i]})
+                self.cur.callproc("SYSTEM.add_performance_data",[Id[i],sysDescr[i],usedPorts[i],netUp[i],netDown[i],voltage[i],fanSpeed[i],temp[i],
+                bandLoad[i],freePorts[i]])
+                         
                 self.con.commit()
             except Exception:
                 print 'Cant inserting!!!  already exist: ',sysDescr[i]
             i+=1
         print "\nafter inserting"
-        self.cur.execute("select ID,SYSLOC from SYSTEM.PERFORMANCE_DATA WHERE ID='1'")
+        self.cur.execute("select * from SYSTEM.PERFORMANCE_DATA")
         print self.cur.fetchall()
 obj=ConnectionDB()
