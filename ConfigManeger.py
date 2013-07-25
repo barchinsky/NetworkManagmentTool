@@ -24,6 +24,7 @@ class ConfManeger():
 		self.config.set('network_maneger', 'output_file', 'data/device_info.txt')
 		self.config.set('network_maneger', 'xml_file', 'data/xml/device_info.xml')
 		self.config.set('network_maneger', 'device_list_file', 'src/devices.txt')
+		self.config.set('network_maneger', 'snmp_ip', '192.168.111.138')
 
 		with open('conf/configs.cfg', 'wb') as configfile:
 			self.config.write(configfile)
@@ -65,3 +66,5 @@ class ConfManeger():
 	def getDevicesFile(self):
 		return self.config.get('network_maneger', 'device_list_file')
 
+	def getSnmpIp(self):
+		return self.config.get('network_maneger', 'snmp_ip')
