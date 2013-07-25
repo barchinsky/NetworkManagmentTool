@@ -19,7 +19,7 @@ class NetworkManager:
         #FORMAT = "%(asctime)-15s %(message)s"
         #logging.basicConfig(filename='data/network.log',level=logging.DEBUG, format = FORMAT)
         #logging.info("Network manager started.")
-        Log("Network manager started",0)
+        Log("Network manager started")
         
         self.ip = _ip
         self.ports = ()
@@ -32,7 +32,7 @@ class NetworkManager:
 
     def callDevices(self):
         #logging.info("Calling devices.")
-        Log("Calling devices",1)
+        Log("Calling devices...")
 
         for port in self.ports:
             errorIndication, errorStatus, errorIndex, self.varBinds = self.cmdGen.getCmd(
@@ -54,7 +54,7 @@ class NetworkManager:
             if errorIndication:
                 #print (errorIndication,port),"Call device Error."
                 #logging.warning("Call device error. Port:" + port)
-                Log("Call device error. Port:" + port) 
+                Log("Call device error. Port:" + port,1) 
                 #raise Exception("Call device error.Port "+port)
             elif errorStatus:
                 #print (errorStatus,port),"Call device Error."
@@ -76,7 +76,7 @@ class NetworkManager:
 
     def printToFile(self):
         #logging.info("Printing data to file(data/device_info.txt")
-        Log("Printing data to file(data/device_info.txt") 
+        Log("Printing data to file(data/device_info.txt...") 
 
         output = open("data/device_info.txt",'r+')
         for dev in self.devices:
@@ -84,7 +84,7 @@ class NetworkManager:
                 output.write(str(name) + '\n' + str(val) + '\n' )
             output.write('\n--------------\n')
         #logging.info("Finished.")
-        Log("Finished")
+        Log("Finished.")
 
     def makeXml(self):
         #logging.info("Start making xml...")
@@ -177,13 +177,10 @@ class NetworkManager:
         Log("Finished.")
 
     def printInventory(self):
-        #logging.info(str(time.time())+"Printing inventory data...") 
         Log("Printing inventory data...") 
         for dev in self.inventory:
             print dev,'\n'
-        Log("Finished")
-
-        logging.info(str(time.time())+"Finished.") 
+        Log("Finished.")
 
     def printDataForDevice(self,info_type,device_id):
         dic = self.getDictionary()
@@ -196,12 +193,12 @@ class NetworkManager:
         if errorIndication:
             raise Exception("Call device error.Port "+port)
             #logging.warning("Call device error. Port:" + port)
-            Log("Call device error. Port:" + port) 
+            Log("Call device error. Port:" + port,1) 
 
         elif errorStatus:
             raise Exception("Error occured: port-"+port+" status-"+errorStatus)
             #logging.warning("Call device error. Port:" + port + "Error status:" + errorStatus)
-            Log("Call device error. Port:" + port + "Error status:" + errorStatus) 
+            Log("Call device error. Port:" + port + "Error status:" + errorStatus,1) 
         else:
             self.printVarBinds(varBinds,0)
 
