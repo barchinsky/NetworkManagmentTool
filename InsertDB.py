@@ -1,6 +1,7 @@
 import cx_Oracle
 from xml.dom.minidom import *
 import sys
+import logging
 
 from CONST import *
 
@@ -9,13 +10,22 @@ class ConnectionDB:
     def __init__(self):
 
         #print sys.argv[1]
-        self.con = cx_Oracle.connect('orcdb/passw0rd@192.168.111.138/orcl')
+        self.logger = logging.getLogger('insert')
+        hdlr = logging.FileHandler('insert.log')
+        formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+        hdlr.setFormatter(formatter)
+        self.logger.addHandler(hdlr) 
+        self.logger.setLevel(logging.WARNING)
+        self.logger.setLevel(logging.INFO)
 
+        self.con = cx_Oracle.connect('orcdb/passw0rd@192.168.111.138/orcl')
+        self.logger.info('connect to db') 
         self.cur = self.con.cursor()
         self.parse()
         self.cur.close()
         print "End."
         self.con.close()
+        self.logger.info('disconnect db')
 
     def parse(self):
 
@@ -31,6 +41,7 @@ class ConnectionDB:
         temp = []
         bandLoad = []
 
+                
         xml = parse('data/xml/device_info.xml')
 
         iden = xml.getElementsByTagName(ID)
@@ -44,7 +55,7 @@ class ConnectionDB:
         tmp = xml.getElementsByTagName(TEMP)
         bLoad = xml.getElementsByTagName(BANDLOAD)
         loc = xml.getElementsByTagName(SYSLOCATION)
-  
+       
         for node in iden:
            Id.append(node.childNodes[0].nodeValue)
         for node in descr:
@@ -77,12 +88,13 @@ class ConnectionDB:
             #self.cur.execute("select * from SYSTEM.PERFORMANCE_DATA")
             #print self.cur.fetchall()
             try:
-                self.cur.callproc("SYSTEM.add_performance_data",[Id[i],sysDescr[i],usedPorts[i],netUp[i],netDown[i],voltage[i],fanSpeed[i],temp[i],
-                bandLoad[i],freePorts[i]])
-                         
+                self.cur.callproc("SYSTEM.add_performance_data",[Id[i],sysDescr[i],usedPorts[i],netUp[i],netDown[i],voltage[i],fanSpeed[i],temp[i],bandLoad[i],freePorts[i]])
+                
+                self.logger.info('call stored procedure')
                 self.con.commit()
             except Exception:
                 print 'Cant inserting!!!  already exist: ',sysDescr[i]
+                self.logger.error('already exist '+Id[i])
             i+=1
         print "\nafter inserting"
         self.cur.execute("select * from SYSTEM.PERFORMANCE_DATA")
