@@ -12,18 +12,18 @@ class ConfManeger():
 		self.config.add_section('logging')
 		#self.config.set('logging', 'log_lvl', '/data/xml/device_info.xml')
 		self.config.set('logging', 'format', '')
-		self.config.set('logging', 'insert_log', '/data/insert.log')
-		self.config.set('logging', 'trap_log', '/data/trap.log')
+		self.config.set('logging', 'insert_log', 'data/insert.log')
+		self.config.set('logging', 'trap_log', 'data/trap.log')
 
 		self.config.add_section('trap')
 		self.config.set('trap', 'ip', "192.168.111.118")
-		self.config.set('trap', 'trap_list', '/data/traps.txt')
+		self.config.set('trap', 'trap_list', 'data/traps.txt')
 		self.config.set('trap', 'connection', 'orcdb/passw0rd@192.168.111.138/orcl')
 
 		self.config.add_section('network_maneger')
-		self.config.set('network_maneger', 'output_file', '/data/device_info.txt')
-		self.config.set('network_maneger', 'xml_file', '/data/xml/device_info.xml')
-		self.config.set('network_maneger', 'device_list_file', '/src/devices.txt')
+		self.config.set('network_maneger', 'output_file', 'data/device_info.txt')
+		self.config.set('network_maneger', 'xml_file', 'data/xml/device_info.xml')
+		self.config.set('network_maneger', 'device_list_file', 'src/devices.txt')
 
 		with open('conf/configs.cfg', 'wb') as configfile:
 			self.config.write(configfile)
