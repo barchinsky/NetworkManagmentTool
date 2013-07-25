@@ -1,4 +1,8 @@
-class ConfigManager():
+#!/usr/bin/env python
+
+import ConfigParser
+
+class ConfManager():
 	def __init__(self):
 		self.config = ConfigParser.RawConfigParser()
 		self.CreateConfFile()
