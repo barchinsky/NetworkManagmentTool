@@ -11,7 +11,7 @@ class ConnectionDB:
 
         #print sys.argv[1]
         self.logger = logging.getLogger('insert')
-        hdlr = logging.FileHandler('insert.log')
+        hdlr = logging.FileHandler('data/insert.log')
         formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
         hdlr.setFormatter(formatter)
         self.logger.addHandler(hdlr) 

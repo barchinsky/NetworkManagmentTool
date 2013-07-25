@@ -58,7 +58,7 @@ def cbFun(transportDispatcher, transportDomain, transportAddress, wholeMsg):
     return wholeMsg
 
 logger = logging.getLogger('trap')
-hdlr = logging.FileHandler('trap.log')
+hdlr = logging.FileHandler('data/trap.log')
 formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
 hdlr.setFormatter(formatter)
 logger.addHandler(hdlr) 
