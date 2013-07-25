@@ -12,7 +12,6 @@ def GetTrapData(varBinds):
     for val in varBinds:
       
         tmp=val.prettyPrint()
-       
         if tmp.find("string-value")!=-1:
             i = tmp.rfind("string-value")
             l = len("string-value")
