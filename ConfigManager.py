@@ -2,7 +2,7 @@
 
 import ConfigParser
 
-class ConfigManager():
+class ConfManeger():
 	def __init__(self):
 		self.config = ConfigParser.RawConfigParser()
 		self.CreateConfFile()
