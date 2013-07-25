@@ -3,14 +3,13 @@ from pysnmp.carrier.asynsock.dgram import udp, udp6
 from pyasn1.codec.ber import decoder
 from pysnmp.proto import api
 import cx_Oracle
+import logging
+
 
 
 def GetTrapData(varBinds):
-    con = cx_Oracle.connect('orcdb/passw0rd@192.168.111.138/orcl')
-
-    cur = con.cursor()
- 
-    for oid, val in varBinds:
+    
+    for val in varBinds:
       
         tmp=val.prettyPrint()
        
@@ -19,19 +18,21 @@ def GetTrapData(varBinds):
             l = len("string-value")
             index = l+i+1
             data = tmp[index:-1]
-            #print data
             Inf = data.split('|')
-            print Inf[0]
-            cur.callproc("SYSTEM.add_trap_info",[Inf[0],Inf[1],float(Inf[2].rstrip())])
-            con.commit()
+ 
+            try:
+                cur.callproc("SYSTEM.add_trap_info",[Inf[0],Inf[1],float(Inf[2].rstrip())])
+                logger.info('insert trap in db')
+                con.commit()
+            except Exception:
+                print 'cant insert.look log file'
+                logger.error('not call stored procedure')
+
+            #con.commit()
            
             
             cur.execute("select * from SYSTEM.TRAP")
             print cur.fetchall()
- 
-    cur.close() 
-    con.close()
- 
 
 def cbFun(transportDispatcher, transportDomain, transportAddress, wholeMsg):
     
@@ -53,9 +54,22 @@ def cbFun(transportDispatcher, transportDomain, transportAddress, wholeMsg):
         if reqPDU.isSameTypeWith(pMod.TrapPDU()):
             varBinds = pMod.apiPDU.getVarBindList(reqPDU)
             print('Var-binds:')
-            GetTrapData(varBinds)
+    GetTrapData(varBinds)
 
     return wholeMsg
+
+logger = logging.getLogger('trap')
+hdlr = logging.FileHandler('trap.log')
+formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+hdlr.setFormatter(formatter)
+logger.addHandler(hdlr) 
+logger.setLevel(logging.WARNING)
+logger.setLevel(logging.INFO)
+
+con = cx_Oracle.connect('orcdb/passw0rd@192.168.111.138/orcl')
+
+cur = con.cursor()
+logger.info('connect to db')
 
 transportDispatcher = AsynsockDispatcher()
 
@@ -63,7 +77,7 @@ transportDispatcher.registerRecvCbFun(cbFun)
 
 # UDP/IPv4
 transportDispatcher.registerTransport(
-    udp.domainName, udp.UdpSocketTransport().openServerMode(('192.168.111.130', 5050))
+    udp.domainName, udp.UdpSocketTransport().openServerMode(('192.168.111.118', 5050))
 )
 
 transportDispatcher.jobStarted(1)
@@ -74,3 +88,6 @@ try:
 except:
     transportDispatcher.closeDispatcher()
     raise
+cur.close() 
+con.close()
+logger.info('disconnect db') 
