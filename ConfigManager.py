@@ -1,4 +1,4 @@
-class ConfManager():
+class ConfigManager():
 	def __init__(self):
 		self.config = ConfigParser.RawConfigParser()
 		self.CreateConfFile()
