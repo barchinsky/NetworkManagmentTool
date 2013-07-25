@@ -96,7 +96,7 @@ class ConnectionDB:
                 print 'Cant inserting!!!  already exist: ',sysDescr[i]
                 self.logger.error('already exist '+Id[i])
             i+=1
-        print "\nafter inserting"
-        self.cur.execute("select * from SYSTEM.PERFORMANCE_DATA")
-        print self.cur.fetchall()
+        #print "\nafter inserting"
+        #self.cur.execute("select * from SYSTEM.PERFORMANCE_DATA")
+        #print self.cur.fetchall()
 obj=ConnectionDB()
