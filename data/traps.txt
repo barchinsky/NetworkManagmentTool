@@ -8,3 +8,8 @@
 7:hardReset
 8:CRC Frame
 9:DDoS detected
+10:halfDuplx
+11:fullDuplx
+12:hardReset
+13:fanFail
+14:failOk

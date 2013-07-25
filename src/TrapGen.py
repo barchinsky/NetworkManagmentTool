@@ -16,9 +16,6 @@ class TrapGen:
 
         self.getDictionary()
 
-        #self.generate()
-        #self.send_trap()
-
     def send_trap(self):
         self.generate()
 
@@ -26,7 +23,7 @@ class TrapGen:
 
         ntfOrg.sendNotification(
         ntforg.CommunityData('public'),
-        ntforg.UdpTransportTarget(('192.168.111.130', 5050)),
+        ntforg.UdpTransportTarget(('192.168.111.118', 5050)),
         'trap',
         ntforg.MibVariable('SNMPv2-MIB', 'system'),
         ('1.3.6.1.6.3.1.1.5.4', v2c.OctetString(self.data)))
@@ -39,7 +36,7 @@ class TrapGen:
 
         dev_id = ('UA5120001RT','UA5120002RT','UA5120003RT','UA5120004RT')
 
-        self.data = str(dev_id[random.randint(0,3)]) +'|'+ str(self.dictionary[random.randint(0,9)])+'|'+str(ts)
+        self.data = str(dev_id[random.randint(0,3)]) +'|'+ str(self.dictionary[random.randint(0,13)])+'|'+str(ts)
 
     def getDictionary(self):
         with open("data/traps.txt",'r') as infile:
