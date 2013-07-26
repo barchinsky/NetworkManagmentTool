@@ -25,9 +25,7 @@ if __name__ == "__main__":
         
         while(1):
             option = menu()
-            print "option = ", option
             if option == 1:
-                print "1"
                 nm.printInventory()
             elif option == 2:
                 nm.printDeviceInfo()
@@ -35,6 +33,8 @@ if __name__ == "__main__":
                 info_type = raw_input("Enter information type: ")
                 device_id = raw_input("Enter device_id: ")
                 nm.printDataForDevice(info_type.rstrip(),device_id.rstrip())
+            else:
+                exit()
     except Exception,exception:
         print exception
 

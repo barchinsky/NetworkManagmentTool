@@ -9,19 +9,19 @@ import re
 from InsertDB import ConnectionDB
 import logging
 import time
+from ftplib import FTP
 
 sys.path.append("./src")
 from CONST import *
 from LogManager import Log
+from ConfigManager import ConfigManager
 
 class NetworkManager:
     def __init__(self,_ip):
-        #FORMAT = "%(asctime)-15s %(message)s"
-        #logging.basicConfig(filename='data/network.log',level=logging.DEBUG, format = FORMAT)
-        #logging.info("Network manager started.")
+        cm = ConfigManager()
         Log("Network manager started")
         
-        self.ip = _ip
+        self.ip = cm.getSnmpIp()
         self.ports = ()
         self.cmdGen = cmdgen.CommandGenerator()
         self.devices = []
@@ -31,7 +31,6 @@ class NetworkManager:
         self.callDevices()
 
     def callDevices(self):
-        #logging.info("Calling devices.")
         Log("Calling devices...")
 
         for port in self.ports:
@@ -40,7 +39,6 @@ class NetworkManager:
             cmdgen.UdpTransportTarget((self.ip, port)),
             O_ID,
             O_DESCR,
-            O_LOCATION,
             O_FPORTS,
             O_UPORTS,
             O_NETUP,
@@ -52,7 +50,7 @@ class NetworkManager:
             lookupNames=True, lookupValues=True)
 
             if errorIndication:
-                #print (errorIndication,port),"Call device Error."
+                print "Calling device error:"+port
                 #logging.warning("Call device error. Port:" + port)
                 Log("Call device error. Port:" + port,1) 
                 #raise Exception("Call device error.Port "+port)
@@ -63,10 +61,8 @@ class NetworkManager:
             else:
                 self.devices.append(self.varBinds)
 
-        #logging.info("Finished.") 
         Log("Finished")
         self.makeXml()
-        #self.insert_data_to_db()
 
     def printDeviceInfo(self):
         for dev in self.devices:
@@ -75,7 +71,6 @@ class NetworkManager:
             print "----------------------------------------------------"
 
     def printToFile(self):
-        #logging.info("Printing data to file(data/device_info.txt")
         Log("Printing data to file(data/device_info.txt...") 
 
         output = open("data/device_info.txt",'r+')
@@ -83,11 +78,9 @@ class NetworkManager:
             for name,val in dev:
                 output.write(str(name) + '\n' + str(val) + '\n' )
             output.write('\n--------------\n')
-        #logging.info("Finished.")
         Log("Finished.")
 
     def makeXml(self):
-        #logging.info("Start making xml...")
         Log("Start making xml...")
         devices = []
         xmlFile = open('data/xml/device_info.xml','w')
@@ -117,52 +110,50 @@ class NetworkManager:
                 root.append(sysDescr)
                 self.inventory.append(performanceData[1])
 
-                sysLocation = etree.Element(SYSLOCATION)
-                sysLocation.text = performanceData[2]
-                root.append(sysLocation)
+                #sysLocation = etree.Element(SYSLOCATION)
+                #sysLocation.text = performanceData[2]
+                #root.append(sysLocation)
 
                 freePorts = etree.Element(FREEPORTS)
-                freePorts.text = performanceData[3]
+                freePorts.text = performanceData[2]
                 root.append(freePorts)
 
                 usedPorts = etree.Element(USEDPORTS)
-                usedPorts.text = performanceData[4]
+                usedPorts.text = performanceData[3]
                 root.append(usedPorts)
 
                 netUp = etree.Element(NETUP)
-                netUp.text = performanceData[5]
+                netUp.text = performanceData[4]
                 root.append(netUp)
 
                 netDown = etree.Element(NETDOWN)
-                netDown.text = performanceData[6]
+                netDown.text = performanceData[5]
                 root.append(netDown)
 
                 fanSpeed = etree.Element(FANSPEED)
-                fanSpeed.text = performanceData[7]
+                fanSpeed.text = performanceData[6]
                 root.append(fanSpeed)
             
                 voltage = etree.Element(VOLTAGE)
-                voltage.text = performanceData[8]
+                voltage.text = performanceData[7]
                 root.append(voltage)
 
                 temp = etree.Element(TEMP)
-                temp.text = performanceData[9]
+                temp.text = performanceData[8]
                 root.append(temp)
 
                 bandLoad = etree.Element(BANDLOAD)
-                bandLoad.text = performanceData[10]
+                bandLoad.text = performanceData[9]
                 root.append(bandLoad)
 
                 xml.append(root)
 
             xmlFile.write(etree.tostring(xml,pretty_print=True))
 
-            #logging.info("Finished.")
             Log("Finished.")
 
 
     def getDevicePorts(self):
-        #logging.info("Geting device ports...")
         Log("Getting device ports...")
         
         infile = open('src/devices.txt','r')
@@ -173,13 +164,21 @@ class NetworkManager:
         ports = re.findall('\d+',data)
         self.ports = ports
 
-        #logging.info("Finished.")
         Log("Finished.")
 
     def printInventory(self):
         Log("Printing inventory data...") 
-        for dev in self.inventory:
-            print dev,'\n'
+        ftp = FTP(self.ip)
+        ftp.login()
+        invent_file = open("inventory.txt",'wb')
+        ftp.retrbinary('RETR inventory.txt',invent_file.write,8*1024)
+        invent_file.close()
+        
+        with open("inventory.txt",'r') as f:
+            for line in f:
+                print line.rstrip()
+        
+
         Log("Finished.")
 
     def printDataForDevice(self,info_type,device_id):
@@ -192,12 +191,10 @@ class NetworkManager:
 
         if errorIndication:
             raise Exception("Call device error.Port "+port)
-            #logging.warning("Call device error. Port:" + port)
             Log("Call device error. Port:" + port,1) 
 
         elif errorStatus:
             raise Exception("Error occured: port-"+port+" status-"+errorStatus)
-            #logging.warning("Call device error. Port:" + port + "Error status:" + errorStatus)
             Log("Call device error. Port:" + port + "Error status:" + errorStatus,1) 
         else:
             self.printVarBinds(varBinds,0)
@@ -216,7 +213,8 @@ class NetworkManager:
                 print '------------------------------\n',val
 
     def insert_data_to_db(self):
-        ConnectionDB()
+        #ConnectionDB()
+        pass
 
 '''--------------------------debug zone-------------------------'''
 #nm = NetworkManager('192.168.111.138')
