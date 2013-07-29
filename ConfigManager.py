@@ -24,7 +24,11 @@ class ConfigManager():
 		self.config.set('network_maneger', 'output_file', 'data/device_info.txt')
 		self.config.set('network_maneger', 'xml_file', 'data/xml/device_info.xml')
 		self.config.set('network_maneger', 'device_list_file', 'src/devices.txt')
-		self.config.set('network_maneger', 'snmp_ip', '192.168.111.138')
+		self.config.set('network_maneger', 'snmp_ip', '192.168.111.138') 
+
+		self.config.add_section('device')
+		self.config.set('device', 'devices', '/home/Den/Documents/vxsnmpsimulator-1.3.6/device/cisco/')
+		self.config.set('device', 'inventory_date', '/home/Den/ftp/')
 
 		with open('conf/configs.cfg', 'wb') as configfile:
 			self.config.write(configfile)
@@ -68,3 +72,9 @@ class ConfigManager():
 
 	def getSnmpIp(self):
 		return self.config.get('network_maneger', 'snmp_ip')
+
+	def getDevicePath(self):
+		return self.config.get('device', 'devices')
+
+	def getInventory(self):
+		return self.config.get('device', 'inventory_date')
