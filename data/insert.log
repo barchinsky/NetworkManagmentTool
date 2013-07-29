@@ -10,6 +10,7 @@
 2013-07-25 13:24:40,256 ERROR already exist 0009
 2013-07-25 13:24:40,264 ERROR already exist 0010
 2013-07-25 13:24:40,273 INFO disconnect db
+<<<<<<< Updated upstream
 2013-07-25 17:41:00,815 INFO connect to db
 2013-07-25 17:41:00,853 ERROR already exist 0001
 2013-07-25 17:41:00,861 ERROR already exist 0002
@@ -82,3 +83,164 @@
 2013-07-25 17:56:58,824 ERROR already exist 0009
 2013-07-25 17:56:58,832 ERROR already exist 0010
 2013-07-25 17:56:58,841 INFO disconnect db
+=======
+2013-07-25 17:56:14,000 INFO connect to db
+2013-07-25 17:56:14,025 ERROR already exist 0001
+2013-07-25 17:56:14,033 ERROR already exist 0002
+2013-07-25 17:56:14,041 ERROR already exist 0003
+2013-07-25 17:56:14,050 ERROR already exist 0004
+2013-07-25 17:56:14,058 ERROR already exist 0005
+2013-07-25 17:56:14,066 ERROR already exist 0006
+2013-07-25 17:56:14,075 ERROR already exist 0007
+2013-07-25 17:56:14,083 ERROR already exist 0008
+2013-07-25 17:56:14,092 ERROR already exist 0009
+2013-07-25 17:56:14,100 ERROR already exist 0010
+2013-07-25 17:56:14,108 INFO disconnect db
+2013-07-29 12:10:36,089 INFO connect to db
+2013-07-29 12:10:36,376 ERROR already exist 0001
+2013-07-29 12:10:36,410 ERROR already exist 0002
+2013-07-29 12:10:36,426 ERROR already exist 0003
+2013-07-29 12:10:36,443 ERROR already exist 0004
+2013-07-29 12:10:36,460 ERROR already exist 0005
+2013-07-29 12:10:36,476 ERROR already exist 0006
+2013-07-29 12:10:36,493 ERROR already exist 0007
+2013-07-29 12:10:36,510 ERROR already exist 0008
+2013-07-29 12:10:36,526 ERROR already exist 0009
+2013-07-29 12:10:36,543 ERROR already exist 0010
+2013-07-29 12:10:36,593 INFO disconnect db
+2013-07-29 12:12:15,679 INFO connect to db
+2013-07-29 12:12:15,720 ERROR already exist 0001
+2013-07-29 12:12:15,737 ERROR already exist 0002
+2013-07-29 12:12:15,753 ERROR already exist 0003
+2013-07-29 12:12:15,770 ERROR already exist 0004
+2013-07-29 12:12:15,787 ERROR already exist 0005
+2013-07-29 12:12:15,803 ERROR already exist 0006
+2013-07-29 12:12:15,820 ERROR already exist 0007
+2013-07-29 12:12:15,837 ERROR already exist 0008
+2013-07-29 12:12:15,854 ERROR already exist 0009
+2013-07-29 12:12:15,870 ERROR already exist 0010
+2013-07-29 12:12:15,887 INFO disconnect db
+2013-07-29 12:12:26,664 INFO connect to db
+2013-07-29 12:12:26,739 ERROR already exist 0001
+2013-07-29 12:12:26,766 ERROR already exist 0002
+2013-07-29 12:12:26,782 ERROR already exist 0003
+2013-07-29 12:12:26,799 ERROR already exist 0004
+2013-07-29 12:12:26,816 ERROR already exist 0005
+2013-07-29 12:12:26,832 ERROR already exist 0006
+2013-07-29 12:12:26,849 ERROR already exist 0007
+2013-07-29 12:12:26,866 ERROR already exist 0008
+2013-07-29 12:12:26,882 ERROR already exist 0009
+2013-07-29 12:12:26,899 ERROR already exist 0010
+2013-07-29 12:12:26,924 INFO disconnect db
+2013-07-29 12:12:59,560 INFO connect to db
+2013-07-29 12:12:59,585 ERROR already exist 0001
+2013-07-29 12:12:59,594 ERROR already exist 0002
+2013-07-29 12:12:59,602 ERROR already exist 0003
+2013-07-29 12:12:59,610 ERROR already exist 0004
+2013-07-29 12:12:59,619 ERROR already exist 0005
+2013-07-29 12:12:59,627 ERROR already exist 0006
+2013-07-29 12:12:59,635 ERROR already exist 0007
+2013-07-29 12:12:59,644 ERROR already exist 0008
+2013-07-29 12:12:59,652 ERROR already exist 0009
+2013-07-29 12:12:59,660 ERROR already exist 0010
+2013-07-29 12:12:59,669 INFO disconnect db
+2013-07-29 12:16:25,206 INFO connect to db
+2013-07-29 12:18:27,988 INFO connect to db
+2013-07-29 12:18:28,007 INFO call stored procedure
+2013-07-29 12:18:28,013 INFO call stored procedure
+2013-07-29 12:18:28,021 INFO call stored procedure
+2013-07-29 12:18:28,030 INFO call stored procedure
+2013-07-29 12:18:28,038 INFO call stored procedure
+2013-07-29 12:18:28,047 INFO call stored procedure
+2013-07-29 12:18:28,063 INFO call stored procedure
+2013-07-29 12:18:28,071 INFO call stored procedure
+2013-07-29 12:18:28,080 INFO call stored procedure
+2013-07-29 12:18:28,088 INFO call stored procedure
+2013-07-29 12:18:28,104 INFO disconnect db
+2013-07-29 12:18:43,556 INFO connect to db
+2013-07-29 12:18:43,577 INFO call stored procedure
+2013-07-29 12:18:43,581 INFO call stored procedure
+2013-07-29 12:18:43,590 INFO call stored procedure
+2013-07-29 12:18:43,598 INFO call stored procedure
+2013-07-29 12:18:43,606 INFO call stored procedure
+2013-07-29 12:18:43,615 INFO call stored procedure
+2013-07-29 12:18:43,623 INFO call stored procedure
+2013-07-29 12:18:43,631 INFO call stored procedure
+2013-07-29 12:18:43,640 INFO call stored procedure
+2013-07-29 12:18:43,648 INFO call stored procedure
+2013-07-29 12:18:43,664 INFO disconnect db
+2013-07-29 12:20:39,828 INFO connect to db
+2013-07-29 12:20:39,849 INFO call stored procedure
+2013-07-29 12:20:39,854 INFO call stored procedure
+2013-07-29 12:20:39,862 INFO call stored procedure
+2013-07-29 12:20:39,871 INFO call stored procedure
+2013-07-29 12:20:39,879 INFO call stored procedure
+2013-07-29 12:20:39,887 INFO call stored procedure
+2013-07-29 12:20:39,896 INFO call stored procedure
+2013-07-29 12:20:39,904 INFO call stored procedure
+2013-07-29 12:20:39,912 INFO call stored procedure
+2013-07-29 12:20:39,921 INFO call stored procedure
+2013-07-29 12:20:39,937 INFO disconnect db
+>>>>>>> Stashed changes
+2013-07-29 12:31:47,329 INFO connect to db
+2013-07-29 12:31:47,349 INFO call stored procedure
+2013-07-29 12:31:47,354 INFO call stored procedure
+2013-07-29 12:31:47,363 INFO call stored procedure
+2013-07-29 12:31:47,371 INFO call stored procedure
+2013-07-29 12:31:47,379 INFO call stored procedure
+2013-07-29 12:31:47,388 INFO call stored procedure
+2013-07-29 12:31:47,396 INFO call stored procedure
+2013-07-29 12:31:47,404 INFO call stored procedure
+2013-07-29 12:31:47,413 INFO call stored procedure
+2013-07-29 12:31:47,421 INFO call stored procedure
+2013-07-29 12:31:47,437 INFO disconnect db
+2013-07-29 12:35:13,734 INFO connect to db
+2013-07-29 12:35:13,755 INFO call stored procedure
+2013-07-29 12:35:13,759 INFO call stored procedure
+2013-07-29 12:35:13,768 INFO call stored procedure
+2013-07-29 12:35:13,776 INFO call stored procedure
+2013-07-29 12:35:13,784 INFO call stored procedure
+2013-07-29 12:35:13,793 INFO call stored procedure
+2013-07-29 12:35:13,801 INFO call stored procedure
+2013-07-29 12:35:13,809 INFO call stored procedure
+2013-07-29 12:35:13,818 INFO call stored procedure
+2013-07-29 12:35:13,826 INFO call stored procedure
+2013-07-29 12:35:13,842 INFO disconnect db
+2013-07-29 12:38:48,393 INFO connect to db
+2013-07-29 12:38:48,414 INFO call stored procedure
+2013-07-29 12:38:48,418 INFO call stored procedure
+2013-07-29 12:38:48,426 INFO call stored procedure
+2013-07-29 12:38:48,435 INFO call stored procedure
+2013-07-29 12:38:48,443 INFO call stored procedure
+2013-07-29 12:38:48,451 INFO call stored procedure
+2013-07-29 12:38:48,460 INFO call stored procedure
+2013-07-29 12:38:48,468 INFO call stored procedure
+2013-07-29 12:38:48,476 INFO call stored procedure
+2013-07-29 12:38:48,485 INFO call stored procedure
+2013-07-29 12:38:48,501 INFO disconnect db
+2013-07-29 12:39:46,511 INFO connect to db
+2013-07-29 12:39:46,530 INFO call stored procedure
+2013-07-29 12:39:46,536 INFO call stored procedure
+2013-07-29 12:39:46,544 INFO call stored procedure
+2013-07-29 12:39:46,553 INFO call stored procedure
+2013-07-29 12:39:46,561 INFO call stored procedure
+2013-07-29 12:39:46,569 INFO call stored procedure
+2013-07-29 12:39:46,578 INFO call stored procedure
+2013-07-29 12:39:46,586 INFO call stored procedure
+2013-07-29 12:39:46,594 INFO call stored procedure
+2013-07-29 12:39:46,603 INFO call stored procedure
+2013-07-29 12:39:46,619 INFO disconnect db
+2013-07-29 12:41:33,049 INFO connect to db
+2013-07-29 12:41:48,575 INFO connect to db
+2013-07-29 12:42:26,869 INFO connect to db
+2013-07-29 12:42:26,890 INFO call stored procedure
+2013-07-29 12:42:26,943 INFO call stored procedure
+2013-07-29 12:42:26,951 INFO call stored procedure
+2013-07-29 12:42:26,960 INFO call stored procedure
+2013-07-29 12:42:26,969 INFO call stored procedure
+2013-07-29 12:42:26,977 INFO call stored procedure
+2013-07-29 12:42:26,984 INFO call stored procedure
+2013-07-29 12:42:26,993 INFO call stored procedure
+2013-07-29 12:42:27,001 INFO call stored procedure
+2013-07-29 12:42:27,010 INFO call stored procedure
+2013-07-29 12:42:27,026 INFO disconnect db

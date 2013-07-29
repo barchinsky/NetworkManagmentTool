@@ -4,21 +4,23 @@ import sys
 import logging
 
 from CONST import *
+from ConfigManager import ConfigManager
 
 class ConnectionDB:
 
     def __init__(self):
 
+        self.cm = ConfigManager()
         #print sys.argv[1]
         self.logger = logging.getLogger('insert')
-        hdlr = logging.FileHandler('data/insert.log')
+        hdlr = logging.FileHandler(self.cm.getInsertLog())
         formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
         hdlr.setFormatter(formatter)
         self.logger.addHandler(hdlr) 
         self.logger.setLevel(logging.WARNING)
         self.logger.setLevel(logging.INFO)
 
-        self.con = cx_Oracle.connect('orcdb/passw0rd@192.168.111.138/orcl')
+        self.con = cx_Oracle.connect(self.cm.getDBConnection())
         self.logger.info('connect to db') 
         self.cur = self.con.cursor()
         self.parse()
@@ -42,7 +44,7 @@ class ConnectionDB:
         bandLoad = []
 
                 
-        xml = parse('data/xml/device_info.xml')
+        xml = parse(self.cm.getDeviceInfoFile())
 
         iden = xml.getElementsByTagName(ID)
         descr = xml.getElementsByTagName(SYSDESCR)

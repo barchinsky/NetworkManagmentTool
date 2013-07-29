@@ -4,8 +4,10 @@ from pyasn1.codec.ber import decoder
 from pysnmp.proto import api
 import cx_Oracle
 import logging
+from ConfigManager import ConfigManager
 
 
+cm = ConfigManager()
 
 def GetTrapData(varBinds):
     
@@ -30,8 +32,8 @@ def GetTrapData(varBinds):
             #con.commit()
            
             
-            cur.execute("select * from SYSTEM.TRAP")
-            print cur.fetchall()
+            #cur.execute("select * from SYSTEM.TRAP")
+            #print cur.fetchall()
 
 def cbFun(transportDispatcher, transportDomain, transportAddress, wholeMsg):
     
@@ -58,14 +60,14 @@ def cbFun(transportDispatcher, transportDomain, transportAddress, wholeMsg):
     return wholeMsg
 
 logger = logging.getLogger('trap')
-hdlr = logging.FileHandler('data/trap.log')
+hdlr = logging.FileHandler(cm.getTrapLog())
 formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
 hdlr.setFormatter(formatter)
 logger.addHandler(hdlr) 
 logger.setLevel(logging.WARNING)
 logger.setLevel(logging.INFO)
 
-con = cx_Oracle.connect('orcdb/passw0rd@192.168.111.138/orcl')
+con = cx_Oracle.connect(cm.getDBConnection())
 
 cur = con.cursor()
 logger.info('connect to db')
@@ -76,7 +78,7 @@ transportDispatcher.registerRecvCbFun(cbFun)
 
 # UDP/IPv4
 transportDispatcher.registerTransport(
-    udp.domainName, udp.UdpSocketTransport().openServerMode(('192.168.111.118', 5050))
+    udp.domainName, udp.UdpSocketTransport().openServerMode((cm.getTrapIp(), 5050))
 )
 
 transportDispatcher.jobStarted(1)
