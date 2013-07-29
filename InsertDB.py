@@ -54,7 +54,6 @@ class ConnectionDB:
         volt = xml.getElementsByTagName(VOLTAGE)
         tmp = xml.getElementsByTagName(TEMP)
         bLoad = xml.getElementsByTagName(BANDLOAD)
-        loc = xml.getElementsByTagName(SYSLOCATION)
        
         for node in iden:
            Id.append(node.childNodes[0].nodeValue)
@@ -76,12 +75,10 @@ class ConnectionDB:
            temp.append(node.childNodes[0].nodeValue)
         for node in bLoad:
            bandLoad.append(node.childNodes[0].nodeValue)
-        for node in loc:
-           sysLocation.append(node.childNodes[0].nodeValue)
 
-        self.insertDB(Id,sysDescr,sysLocation,usedPorts,netUp,netDown,voltage,fanSpeed,temp,bandLoad,freePorts)
+        self.insertDB(Id,sysDescr,usedPorts,netUp,netDown,voltage,fanSpeed,temp,bandLoad,freePorts)
 
-    def insertDB(self,Id,sysDescr,sysLocation,usedPorts,netUp,netDown,voltage,fanSpeed,temp,bandLoad,freePorts):
+    def insertDB(self,Id,sysDescr,usedPorts,netUp,netDown,voltage,fanSpeed,temp,bandLoad,freePorts):
         i=0
         while i<len(Id):
 
@@ -93,8 +90,8 @@ class ConnectionDB:
                 self.logger.info('call stored procedure')
                 self.con.commit()
             except Exception:
-                print 'Cant inserting!!!  already exist: ',sysDescr[i]
-                self.logger.error('already exist '+Id[i])
+                print 'Cant inserting!!! '+Id[i]
+                self.logger.error('Can not inserting '+Id[i])
             i+=1
         #print "\nafter inserting"
         #self.cur.execute("select * from SYSTEM.PERFORMANCE_DATA")
