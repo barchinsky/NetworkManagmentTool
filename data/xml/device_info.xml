@@ -1,8 +1,7 @@
 <xml>
   <Device>
-    <Id>0001</Id>
+    <Id>UA5120001RT</Id>
     <sysDescr>Cisco IOS Software, 2013 Software (C1841-ADVSECURITYK9-M), Version 12.2(16b), RELEASE SOFTWARE (fc3)Technical Support: http://www.cisco.com/techsupportCopyright (c) 1986-2013 by Cisco Systems, Inc.Compiled Wed 19-Dec-07 23:14 by prod_rel_team</sysDescr>
-    <sysLocation>Ukraine</sysLocation>
     <freePorts>20</freePorts>
     <usedPorts>20</usedPorts>
     <netUp>500</netUp>
@@ -13,9 +12,8 @@
     <bandLoad>100</bandLoad>
   </Device>
   <Device>
-    <Id>0002</Id>
+    <Id>UA5120002RT</Id>
     <sysDescr>Cisco IOS Software, 2013 Software (C1841-ADVSECURITYK9-M), Version 12.2(16b), RELEASE SOFTWARE (fc3)Technical Support: http://www.cisco.com/techsupportCopyright (c) 1986-2013 by Cisco Systems, Inc.Compiled Wed 19-Dec-07 23:14 by prod_rel_team</sysDescr>
-    <sysLocation>Ukraine</sysLocation>
     <freePorts>25</freePorts>
     <usedPorts>15</usedPorts>
     <netUp>5630</netUp>
@@ -26,9 +24,8 @@
     <bandLoad>100</bandLoad>
   </Device>
   <Device>
-    <Id>0003</Id>
+    <Id>UA5120003RT</Id>
     <sysDescr>Cisco IOS Software, 2013 Software (C1841-ADVSECURITYK9-M), Version 12.2(16b), RELEASE SOFTWARE (fc3)Technical Support: http://www.cisco.com/techsupportCopyright (c) 1986-2013 by Cisco Systems, Inc.Compiled Wed 19-Dec-07 23:14 by prod_rel_team</sysDescr>
-    <sysLocation>Ukraine</sysLocation>
     <freePorts>5</freePorts>
     <usedPorts>35</usedPorts>
     <netUp>10895</netUp>
@@ -39,9 +36,8 @@
     <bandLoad>100</bandLoad>
   </Device>
   <Device>
-    <Id>0004</Id>
+    <Id>UA5120004RT</Id>
     <sysDescr>Cisco IOS Software, 2013 Software (C1841-ADVSECURITYK9-M), Version 12.2(16b), RELEASE SOFTWARE (fc3)Technical Support: http://www.cisco.com/techsupportCopyright (c) 1986-2013 by Cisco Systems, Inc.Compiled Wed 19-Dec-07 23:14 by prod_rel_team</sysDescr>
-    <sysLocation>Ukraine</sysLocation>
     <freePorts>30</freePorts>
     <usedPorts>10</usedPorts>
     <netUp>2005</netUp>
@@ -52,9 +48,8 @@
     <bandLoad>100</bandLoad>
   </Device>
   <Device>
-    <Id>0005</Id>
+    <Id>UA5120005RT</Id>
     <sysDescr>Cisco IOS Software, 2013 Software (C1841-ADVSECURITYK9-M), Version 12.2(16b), RELEASE SOFTWARE (fc3)Technical Support: http://www.cisco.com/techsupportCopyright (c) 1986-2013 by Cisco Systems, Inc.Compiled Wed 19-Dec-07 23:14 by prod_rel_team</sysDescr>
-    <sysLocation>Ukraine</sysLocation>
     <freePorts>23</freePorts>
     <usedPorts>17</usedPorts>
     <netUp>18954</netUp>
@@ -65,9 +60,8 @@
     <bandLoad>100</bandLoad>
   </Device>
   <Device>
-    <Id>0006</Id>
+    <Id>UA5120006RT</Id>
     <sysDescr>Cisco IOS Software, 2013 Software (C1841-ADVSECURITYK9-M), Version 12.2(16b), RELEASE SOFTWARE (fc3)Technical Support: http://www.cisco.com/techsupportCopyright (c) 1986-2013 by Cisco Systems, Inc.Compiled Wed 19-Dec-07 23:14 by prod_rel_team</sysDescr>
-    <sysLocation>Ukraine</sysLocation>
     <freePorts>2</freePorts>
     <usedPorts>38</usedPorts>
     <netUp>89423</netUp>
@@ -78,9 +72,8 @@
     <bandLoad>100</bandLoad>
   </Device>
   <Device>
-    <Id>0007</Id>
+    <Id>UA5120007RT</Id>
     <sysDescr>Cisco IOS Software, 2013 Software (C1841-ADVSECURITYK9-M), Version 12.2(16b), RELEASE SOFTWARE (fc3)Technical Support: http://www.cisco.com/techsupportCopyright (c) 1986-2013 by Cisco Systems, Inc.Compiled Wed 19-Dec-07 23:14 by prod_rel_team</sysDescr>
-    <sysLocation>Ukraine</sysLocation>
     <freePorts>20</freePorts>
     <usedPorts>20</usedPorts>
     <netUp>100000</netUp>
@@ -91,9 +84,8 @@
     <bandLoad>100</bandLoad>
   </Device>
   <Device>
-    <Id>0008</Id>
+    <Id>UA5120008RT</Id>
     <sysDescr>Cisco IOS Software, 2013 Software (C1841-ADVSECURITYK9-M), Version 12.2(16b), RELEASE SOFTWARE (fc3)Technical Support: http://www.cisco.com/techsupportCopyright (c) 1986-2013 by Cisco Systems, Inc.Compiled Wed 19-Dec-07 23:14 by prod_rel_team</sysDescr>
-    <sysLocation>Ukraine</sysLocation>
     <freePorts>2</freePorts>
     <usedPorts>38</usedPorts>
     <netUp>89423</netUp>
@@ -104,9 +96,8 @@
     <bandLoad>100</bandLoad>
   </Device>
   <Device>
-    <Id>0009</Id>
+    <Id>UA5120009RT</Id>
     <sysDescr>Cisco IOS Software, 2013 Software (C1841-ADVSECURITYK9-M), Version 12.2(16b), RELEASE SOFTWARE (fc3)Technical Support: http://www.cisco.com/techsupportCopyright (c) 1986-2013 by Cisco Systems, Inc.Compiled Wed 19-Dec-07 23:14 by prod_rel_team</sysDescr>
-    <sysLocation>Ukraine</sysLocation>
     <freePorts>26</freePorts>
     <usedPorts>14</usedPorts>
     <netUp>10895</netUp>
@@ -117,9 +108,8 @@
     <bandLoad>100</bandLoad>
   </Device>
   <Device>
-    <Id>0010</Id>
+    <Id>UA5120010RT</Id>
     <sysDescr>Cisco IOS Software, 2013 Software (C1841-ADVSECURITYK9-M), Version 12.2(16b), RELEASE SOFTWARE (fc3)Technical Support: http://www.cisco.com/techsupportCopyright (c) 1986-2013 by Cisco Systems, Inc.Compiled Wed 19-Dec-07 23:14 by prod_rel_team</sysDescr>
-    <sysLocation>Ukraine</sysLocation>
     <freePorts>27</freePorts>
     <usedPorts>13</usedPorts>
     <netUp>2005</netUp>
