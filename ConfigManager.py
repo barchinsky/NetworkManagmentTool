@@ -11,7 +11,7 @@ class ConfigManager():
 		#create config file
 		self.config.add_section('logging')
 		#self.config.set('logging', 'log_lvl', '/data/xml/device_info.xml')
-		self.config.set('logging', 'format', '')
+		#self.config.set('logging', 'format', '')
 		self.config.set('logging', 'insert_log', 'data/insert.log')
 		self.config.set('logging', 'trap_log', 'data/trap.log')
 
@@ -27,8 +27,9 @@ class ConfigManager():
 		self.config.set('network_maneger', 'snmp_ip', '192.168.111.138') 
 
 		self.config.add_section('device')
-		self.config.set('device', 'devices', '/home/Den/Documents/vxsnmpsimulator-1.3.6/device/cisco/')
-		self.config.set('device', 'inventory_date', '/home/Den/ftp/')
+		self.config.set('device', 'devices', '~/Documents/vxsnmpsimulator-1.3.6/device/cisco/')
+		self.config.set('device', 'conf_file', '../conf/')
+		self.config.set('device', 'inventory_date', '~/ftp/')
 
 		with open('conf/configs.cfg', 'wb') as configfile:
 			self.config.write(configfile)
@@ -46,35 +47,54 @@ class ConfigManager():
 	def getLogFormat(self):
 		return self.config.get('logging', 'format')
 
+	#get file insert.log
 	def getInsertLog(self):
 		return self.config.get('logging', 'insert_log')
 
+	#get file trap.log
 	def getTrapLog(self):
 		return self.config.get('logging', 'trap_log')
 
+	#get ip for trap manager
 	def getTrapIp(self):
 		return self.config.get('trap', 'ip')
 
+	#get trap list
 	def getTrapList(self):
 		return self.config.get('trap', 'trap_list')
 
+	#database connection
 	def getDBConnection(self):
 		return self.config.get('trap', 'connection')
 
+	#path to file device.txt
 	def getOutputFile(self):
 		return self.config.get('network_maneger', 'output_file')
 
+	#path to file device.xml
 	def getDeviceInfoFile(self):
 		return self.config.get('network_maneger', 'xml_file')
 
+	#path to file devices_list
 	def getDevicesFile(self):
 		return self.config.get('network_maneger', 'device_list_file')
 
+	#simulator snmp, get ip server
 	def getSnmpIp(self):
 		return self.config.get('network_maneger', 'snmp_ip')
 
+	#path to devices for snmp simulator
 	def getDevicePath(self):
 		return self.config.get('device', 'devices')
 
+	#path to file inventory.txt
 	def getInventory(self):
 		return self.config.get('device', 'inventory_date')
+
+	#path to configuration file
+	def getConfFile(self):
+		return self.config.get('device', 'conf_file')
+
+
+obj = ConfigManager()
+obj.CreateConfFile()
