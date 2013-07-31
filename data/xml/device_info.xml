@@ -2,7 +2,7 @@
   <Device>
     <Id>UA5120001RT</Id>
     <sysDescr>Cisco IOS Software, 2013 Software (C1841-ADVSECURITYK9-M), Version 12.2(16b), RELEASE SOFTWARE (fc3)Technical Support: http://www.cisco.com/techsupportCopyright (c) 1986-2013 by Cisco Systems, Inc.Compiled Wed 19-Dec-07 23:14 by prod_rel_team</sysDescr>
-    <freePorts>20</freePorts>
+    <freePorts>30</freePorts>
     <usedPorts>20</usedPorts>
     <netUp>500</netUp>
     <netDown>8000</netDown>
