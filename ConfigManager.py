@@ -96,5 +96,5 @@ class ConfigManager():
 		return self.config.get('device', 'conf_file')
 
 
-obj = ConfigManager()
-obj.CreateConfFile()
+#obj = ConfigManager()
+#obj.CreateConfFile()
