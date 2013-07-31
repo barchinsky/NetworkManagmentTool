@@ -54,7 +54,7 @@ def cbFun(transportDispatcher, transportDomain, transportAddress, wholeMsg):
         reqPDU = pMod.apiMessage.getPDU(reqMsg)
         if reqPDU.isSameTypeWith(pMod.TrapPDU()):
             varBinds = pMod.apiPDU.getVarBindList(reqPDU)
-            print('Var-binds:')
+            #print('Var-binds:')
     GetTrapData(varBinds)
 
     return wholeMsg

@@ -25,7 +25,7 @@ class ConnectionDB:
         self.cur = self.con.cursor()
         self.parse()
         self.cur.close()
-        print "End."
+        #print "End."
         self.con.close()
         self.logger.info('disconnect db')
 
