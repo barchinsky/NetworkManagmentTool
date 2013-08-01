@@ -61,7 +61,7 @@ class ServiceSimulator:
         user_id = "user id"
         client_agent = "client type"
 
-        bb_file.write(user_id+sep+ip+sep+mac+sep+up_speed+sep+down_speed+sep+delay+sep+pack_loss+sep+customer_info+sep+close+sep+ts+'\n')
+        bb_file.write(user_id+sep+ip+sep+mac+sep+up_speed+sep+down_speed+sep+delay+sep+pack_loss+sep+customer_info+sep+client_agent+sep+ts+'\n')
         bb_file.close()
 
 

@@ -6,7 +6,7 @@ sys.path.append("./src/")
 from CONST import *
 
 def menu():
-    options = {1:"network inventory info.",2:" all devices info.",3:"device info.",4:"device description."}
+    options = {1:"network inventory info.",2:" all devices info.",3:"device info.",4:"device description.(!!!!)"}
     print "------------------------------"
     print "MENU"
     print "------------------------------"
