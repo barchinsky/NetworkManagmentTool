@@ -19,7 +19,7 @@ class Statistic:
         print data
         plt.figure(21)
         plt.plot(data)
-        plt.xticks(range(len(data)), ['a', 'b', 'c', 'd', 'e', 'f'])
+        plt.xticks(range(len(data)), ['a', 'b', 'c', 'd', 'e', 'f','g','k'])
         plt.show()
       
 obj = Statistic()
