@@ -27,9 +27,14 @@ class ConfigManager():
 		self.config.set('network_maneger', 'snmp_ip', '192.168.111.138') 
 
 		self.config.add_section('device')
-		self.config.set('device', 'devices', '~/Documents/vxsnmpsimulator-1.3.6/device/cisco/')
-		self.config.set('device', 'conf_file', '../conf/')
-		self.config.set('device', 'inventory_date', '~/ftp/')
+		#self.config.set('device', 'devices', '~/Documents/vxsnmpsimulator-1.3.6/device/cisco/')
+		#self.config.set('device', 'conf_file', '../conf/')
+		self.config.set('device', 'inventory_date', '/home/Den/ftp/')
+
+		self.config.add_section('service')
+		self.config.set('service', 'iptv', '/../data/iptv.csv')
+		self.config.set('service', 'voip', '/../data/voip.csv')
+		self.config.set('service', 'bb', '/../data/bb.csv')
 
 		with open('conf/configs.cfg', 'wb') as configfile:
 			self.config.write(configfile)
@@ -95,6 +100,17 @@ class ConfigManager():
 	def getConfFile(self):
 		return self.config.get('device', 'conf_file')
 
+	#path to iptv.csv file
+	def getIptvFile(self):
+		return self.config.get('service', 'iptv')
 
-#obj = ConfigManager()
-#obj.CreateConfFile()
+
+	#path to voip.csv file
+	def getVoipFile(self):
+		return self.config.get('service', 'voip')
+
+
+	#path to bb.csv file
+	def getBbFile(self):
+		return self.config.get('service', 'bb')
+
