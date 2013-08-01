@@ -30,7 +30,7 @@ class ServiceSimulator:
         voip_file.close()
 
     def generateIPTV(self):
-        iptv_file = open(os.path.dirname(__file__)+"/../data/iptv.csv","a+")
+        iptv_file = open("iptv.csv","a+")
         sep = ","
  
         user_id = "user id"
@@ -48,7 +48,7 @@ class ServiceSimulator:
         iptv_file.close()
 
     def generateBroadband(self):
-        bb_file = open(os.path.dirname(__file__)+"/../data/bb.csv",'a+')
+        bb_file = open("bb.csv",'a+')
         sep = ","
 
         customer_info = "customer info"
