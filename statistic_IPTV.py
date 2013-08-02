@@ -3,14 +3,18 @@ import matplotlib.pyplot as plt
 import cx_Oracle
 import re
 from pylab import *
+import time
 
 class Statistic_IPTV:
 
     def __init__(self):
 
+
+        ts = time.time()
+        last = ts-10*60
         con = cx_Oracle.connect('orcdb/passw0rd@192.168.111.138/orcl')
         cur = con.cursor()
-        cur.execute("select PAYMENT from IPTV WHERE PAYMENT=0")
+        cur.execute("select PAYMENT from IPTV WHERE PAYMENT=0 AND TIMESTAMP>:last",{'last':last})
         tmp = cur.fetchall()
         ch_free = len(tmp)
         cur.execute("select PAYMENT from IPTV WHERE PAYMENT=1")

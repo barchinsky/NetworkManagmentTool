@@ -3,17 +3,21 @@ import matplotlib.pyplot as plt
 import cx_Oracle
 import re
 from pylab import *
+import time
 
 class Statistic_BB:
 
     def __init__(self):
 
+        ts = time.time()
+        last = ts-20*60*10
+        #print last
         con = cx_Oracle.connect('orcdb/passw0rd@192.168.111.138/orcl')
         cur = con.cursor()
-        cur.execute("select DELAY from BROADBAND")
+        cur.execute("select DELAY from BROADBAND WHERE TIMESTAMP>:last",{'last':last})
         delay = cur.fetchall()
-        cur.execute("select TIMESTAMP from BROADBAND")
-        time = cur.fetchall()
+        #cur.execute("select TIMESTAMP from BROADBAND")
+        #time = cur.fetchall()
         cur.execute("select STREAMUP from BROADBAND")
         s_up = cur.fetchall()
         cur.execute("select STREAMDOWN from BROADBAND")
@@ -22,14 +26,16 @@ class Statistic_BB:
         p_loss = cur.fetchall()
 
 
-
         tmp = 0
         count = 0
         avr = 0
         for el in delay:
             tmp+=el[0]
             count+=1
-        avr=tmp/count
+        if count==0:
+            avr = 0
+        else:
+            avr=tmp/count
 
         self.grafic(delay,avr,time,s_up,s_down,p_loss)
    
