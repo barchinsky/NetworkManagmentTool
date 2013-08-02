@@ -7,7 +7,7 @@ def Select_trap():
     cur = con.cursor()
     trap = {'lowVolatage','fanStatus Fail','temp Hight','linkDown','shutDown','coldStart','hardReset','CRC Frame','DDos detected','hard Reset','fanFail'}
     Id = raw_input("please input devices CLLI: ")
-    cur.execute("select TRAP from SYSTEM.TRAP WHERE IDDEVICE=:Id",{'Id':Id})
+    cur.execute("select TRAP from TRAP WHERE IDDEVICE=:Id",{'Id':Id})
     data = cur.fetchall()
     if data == []:
         print 'No such device in DB'

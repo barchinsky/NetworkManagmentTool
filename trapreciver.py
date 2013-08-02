@@ -22,7 +22,7 @@ def GetTrapData(varBinds):
             Inf = data.split('|')
  
             try:
-                cur.callproc("SYSTEM.add_trap_info",[Inf[0],Inf[1],float(Inf[2].rstrip())])
+                cur.callproc("add_trap_info",[Inf[0],Inf[1],float(Inf[2].rstrip())])
                 logger.info('insert trap in db')
                 con.commit()
             except Exception:

@@ -316,3 +316,51 @@
 2013-07-31 13:57:56,764 INFO call stored procedure
 2013-07-31 13:57:56,772 INFO call stored procedure
 2013-07-31 13:57:56,789 INFO disconnect db
+2013-08-02 13:25:08,503 INFO connect to db
+2013-08-02 13:25:08,593 ERROR Can not inserting 0001
+2013-08-02 13:25:08,595 ERROR Can not inserting 0002
+2013-08-02 13:25:08,596 ERROR Can not inserting 0003
+2013-08-02 13:25:08,598 ERROR Can not inserting 0004
+2013-08-02 13:25:08,599 ERROR Can not inserting 0005
+2013-08-02 13:25:08,600 ERROR Can not inserting 0006
+2013-08-02 13:25:08,602 ERROR Can not inserting 0007
+2013-08-02 13:25:08,603 ERROR Can not inserting 0008
+2013-08-02 13:25:08,604 ERROR Can not inserting 0009
+2013-08-02 13:25:08,605 ERROR Can not inserting 0010
+2013-08-02 13:25:08,618 INFO disconnect db
+2013-08-02 13:41:51,099 INFO connect to db
+2013-08-02 13:41:51,119 ERROR Can not inserting UA5120001RT
+2013-08-02 13:41:51,121 ERROR Can not inserting UA5120002RT
+2013-08-02 13:41:51,122 ERROR Can not inserting UA5120003RT
+2013-08-02 13:41:51,124 ERROR Can not inserting UA5120004RT
+2013-08-02 13:41:51,125 ERROR Can not inserting UA5120005RT
+2013-08-02 13:41:51,127 ERROR Can not inserting UA5120006RT
+2013-08-02 13:41:51,128 ERROR Can not inserting UA5120007RT
+2013-08-02 13:41:51,130 ERROR Can not inserting UA5120008RT
+2013-08-02 13:41:51,131 ERROR Can not inserting UA5120009RT
+2013-08-02 13:41:51,132 ERROR Can not inserting UA5120010RT
+2013-08-02 13:41:51,140 INFO disconnect db
+2013-08-02 13:44:19,527 INFO connect to db
+2013-08-02 13:44:19,548 ERROR Can not inserting UA5120001RT
+2013-08-02 13:44:19,550 ERROR Can not inserting UA5120002RT
+2013-08-02 13:44:19,551 ERROR Can not inserting UA5120003RT
+2013-08-02 13:44:19,553 ERROR Can not inserting UA5120004RT
+2013-08-02 13:44:19,554 ERROR Can not inserting UA5120005RT
+2013-08-02 13:44:19,556 ERROR Can not inserting UA5120006RT
+2013-08-02 13:44:19,557 ERROR Can not inserting UA5120007RT
+2013-08-02 13:44:19,559 ERROR Can not inserting UA5120008RT
+2013-08-02 13:44:19,560 ERROR Can not inserting UA5120009RT
+2013-08-02 13:44:19,562 ERROR Can not inserting UA5120010RT
+2013-08-02 13:44:19,569 INFO disconnect db
+2013-08-02 13:44:47,707 INFO connect to db
+2013-08-02 13:44:47,774 INFO call stored procedure
+2013-08-02 13:44:47,784 INFO call stored procedure
+2013-08-02 13:44:47,791 INFO call stored procedure
+2013-08-02 13:44:47,800 INFO call stored procedure
+2013-08-02 13:44:47,808 INFO call stored procedure
+2013-08-02 13:44:47,816 INFO call stored procedure
+2013-08-02 13:44:47,825 INFO call stored procedure
+2013-08-02 13:44:47,833 INFO call stored procedure
+2013-08-02 13:44:47,841 INFO call stored procedure
+2013-08-02 13:44:47,850 INFO call stored procedure
+2013-08-02 13:44:47,866 INFO disconnect db

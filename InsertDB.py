@@ -87,11 +87,12 @@ class ConnectionDB:
             #self.cur.execute("select * from SYSTEM.PERFORMANCE_DATA")
             #print self.cur.fetchall()
             try:
-                self.cur.callproc("SYSTEM.add_performance_data",[Id[i],sysDescr[i],usedPorts[i],netUp[i],netDown[i],voltage[i],fanSpeed[i],temp[i],bandLoad[i],freePorts[i]])
+                self.cur.callproc("add_performance_data",[Id[i],sysDescr[i],usedPorts[i],netUp[i],netDown[i],voltage[i],fanSpeed[i],temp[i],bandLoad[i],freePorts[i]])
                 
                 self.logger.info('call stored procedure')
                 self.con.commit()
-            except Exception:
+            except Exception,f:
+                print f
                 print 'Cant inserting!!! '+Id[i]
                 self.logger.error('Can not inserting '+Id[i])
             i+=1
