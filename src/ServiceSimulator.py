@@ -2,18 +2,24 @@
 
 import time
 import random
-import os.path
+#import os.path
+import os
+import sys
+from ConfigManager import ConfigManager
 
 class ServiceSimulator:
     def __init__(self):
-        pass
+        cm = ConfigManager()
+        self.voip_path = cm.getVoipFile()
+        self.bb_path = cm.getBbFile()
+        self.iptv_path = cm.getIptvFile()
+        self.sep = ','
 
     def start(self):
         pass
     
     def generateVoIP(self):
-        voip_file = open(os.path.dirname(__file__)+"/../data/voip.csv","a+")
-        sep = ","
+        voip_file = open(os.path.dirname(__file__)+self.voip_path,"a+")
 
         user_id = "user id"
         ts = str(time.time())
@@ -26,12 +32,11 @@ class ServiceSimulator:
         ts_start = ts
         ts_end = str( (float(ts_start) + random.uniform(10,500)) )
         
-        voip_file.write(user_id+sep+sip1+sep+sip2+sep+delay+sep+echo+sep+codec+sep+pack_loss+sep+ts+sep+ts_start+sep+ts_end+'\n')
+        voip_file.write(user_id+self.sep+sip1+self.sep+sip2+self.sep+delay+self.sep+echo+self.sep+codec+self.sep+pack_loss+self.sep+ts+self.sep+ts_start+self.sep+ts_end+'\n')
         voip_file.close()
 
     def generateIPTV(self):
-        iptv_file = open(os.path.dirname(__file__)+"/../data/iptv.csv","a+")
-        sep = ","
+        iptv_file = open(os.path.dirname(__file__)+self.iptv_path,"a+")
  
         user_id = "user id"
         ts = str(time.time())
@@ -44,11 +49,11 @@ class ServiceSimulator:
         bandwidth = str(random.randint(0,100))
         codec = "codec_type"
 
-        iptv_file.write(user_id+sep+chanel+sep+stb_id+sep+prev_chanel+sep+payment+sep+chan_spec+sep+parent+sep+bandwidth+sep+codec+'\n')
+        iptv_file.write(user_id+self.sep+chanel+self.sep+stb_id+self.sep+prev_chanel+self.sep+payment+self.sep+chan_spec+self.sep+parent+self.sep+bandwidth+self.sep+codec+'\n')
         iptv_file.close()
 
     def generateBroadband(self):
-        bb_file = open(os.path.dirname(__file__)+"/../data/bb.csv",'a+')
+        bb_file = open(os.path.dirname(__file__)+self.bb_path,'a+')
         sep = ","
 
         customer_info = "customer info"
@@ -62,13 +67,19 @@ class ServiceSimulator:
         user_id = "user id"
         client_agent = "client type"
 
-        bb_file.write(user_id+sep+ip+sep+mac+sep+up_speed+sep+down_speed+sep+delay+sep+pack_loss+sep+customer_info+sep+client_agent+sep+ts+'\n')
+        bb_file.write(user_id+self.sep+ip+self.sep+mac+self.sep+up_speed+self.sep+down_speed+self.sep+delay+self.sep+pack_loss+self.sep+customer_info+self.sep+client_agent+self.sep+ts+'\n')
         bb_file.close()
 
 
 obj = ServiceSimulator()
+indicator = "Simulator is working"
 
 while(True):
+    os.system('clear')
+    indicator = indicator+"."
+    print indicator,
+    sys.stdout.flush()
+
     obj.generateVoIP()
     obj.generateIPTV()
     obj.generateBroadband()
