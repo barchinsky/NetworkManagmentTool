@@ -49,7 +49,7 @@ class ServiceSimulator:
         bandwidth = str(random.randint(0,100))
         codec = "codec_type"
 
-        iptv_file.write(user_id+self.sep+chanel+self.sep+stb_id+self.sep+prev_chanel+self.sep+payment+self.sep+chan_spec+self.sep+parent+self.sep+bandwidth+self.sep+codec+'\n')
+        iptv_file.write(user_id+self.sep+chanel+self.sep+stb_id+self.sep+prev_chanel+self.sep+payment+self.sep+chan_spec+self.sep+parent+self.sep+bandwidth+self.sep+codec+self.sep+ts+'\n')
         iptv_file.close()
 
     def generateBroadband(self):
