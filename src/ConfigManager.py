@@ -32,9 +32,9 @@ class ConfigManager():
 		self.config.set('device', 'inventory_date', '/home/Den/ftp/')
 
 		self.config.add_section('service')
-		self.config.set('service', 'iptv', '/../data/iptv.csv')
-		self.config.set('service', 'voip', '/../data/voip.csv')
-		self.config.set('service', 'bb', '/../data/bb.csv')
+		self.config.set('service', 'iptv', '../data/iptv.csv')
+		self.config.set('service', 'voip', '../data/voip.csv')
+		self.config.set('service', 'bb', '../data/bb.csv')
 
 		with open('../conf/configs.cfg', 'wb') as configfile:
 			self.config.write(configfile)
