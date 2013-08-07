@@ -4,43 +4,42 @@ import cx_Oracle
 import re
 from pylab import *
 import time
+from PyQt4 import QtGui, QtCore
+import sys
 
 class Statistic:
 
     def __init__(self):
-
-        #ts = time.time()
-        #last = ts-20*60*1000
-        #print last
+        pass
+  
+        
+    def select_dev(self,text,M_T):
+        
+        print "service is "+text
+        print "metric is "+M_T
         con = cx_Oracle.connect('orcdb/passw0rd@192.168.111.138/orcl')
         self.cur = con.cursor()
-        self.select_dev()
+        if text=="BROADBAND":
+            self.metr_BB(M_T)
+
+        elif text=="IPTV":
+            self.metr_IPTV()
+        elif text=="VOIP":
+            self.metr_VOIP(M_T)
+        
         self.cur.close()
         con.close()
 
-    def select_dev(self):
-        s = raw_input("Please,select service(BROADBAND,IPTV,VOIP):\n")
-        #print s
-        if s=="BROADBAND":
-            self.metr_BB()
 
-        elif s=="IPTV":
-            self.metr_IPTV()
-        elif s=="VOIP":
-            self.metr_VOIP()
-
-
-
-    def metr_BB(self):
-        M_T="STREAMUP"
+    def metr_BB(self,M_T):
+        #M_T="STREAMUP"
         I_S = "BROADBAND"
         self.cur.execute("select MAX from METRICS WHERE IDSERVICE=:I_S AND METRIC_TYPE=:M_T",{'I_S':I_S,'M_T':M_T})
         data = self.cur.fetchall()
         lim = data[0][0]
         self.cur.execute("select DELAY from BROADBAND")
         delay = self.cur.fetchall()
-        #cur.execute("select TIMESTAMP from BROADBAND")
-        #time = cur.fetchall()
+        
         self.cur.execute("select STREAMUP from BROADBAND")
         s_up = self.cur.fetchall()
         self.cur.execute("select STREAMDOWN from BROADBAND")
@@ -72,8 +71,7 @@ class Statistic:
         self.grafic_IPTV(ch_free,ch_paid)
 
 
-    def metr_VOIP(self):
-        M_T="DELAY"
+    def metr_VOIP(self,M_T):
         I_S = "VOIP"
         self.cur.execute("select MAX from METRICS WHERE IDSERVICE=:I_S AND METRIC_TYPE=:M_T",{'I_S':I_S,'M_T':M_T})
         data = self.cur.fetchall()
@@ -127,14 +125,12 @@ class Statistic:
 
         elif M_T == "STREAMUP":
             plt.plot(s_up,'g')
-            #plt.plot(s_down,'r')
             plt.legend(['stream_up'])
             plt.xlim(0,len(s_up))
             plt.ylim(0,10000)
             plt.show()
 
         elif M_T == "STREAMDOWN":
-            #plt.plot(s_up,'g')
             plt.plot(s_down,'r')
             plt.legend(['stream_down'])
             plt.xlim(0,len(s_up))
@@ -160,8 +156,6 @@ class Statistic:
         
         if M_T == "DELAY":
             y = avr_d
-            #plt.figure(21)
-            #subplot(2,1,1)
             plt.plot(delay_vo)  
             favr=[]
             limit_y = np.linspace(lim,lim,len(delay_vo))
@@ -199,8 +193,5 @@ class Statistic:
             plt.legend(['packet loss'])
             plt.show()
 
- 
-   
-      
 obj = Statistic()
 
