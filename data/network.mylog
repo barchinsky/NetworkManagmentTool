@@ -1,131 +1,120 @@
-INFO: 2013-07-31 13:06:20,217 Network manager started
-INFO: 2013-07-31 13:06:20,272 Getting device ports...
-INFO: 2013-07-31 13:06:20,272 Finished.
-INFO: 2013-07-31 13:06:20,273 Calling devices...
-WARNING: 2013-07-31 13:06:26,308 Call device error. Port:5323
-INFO: 2013-07-31 13:13:15,074 Network manager started
-INFO: 2013-07-31 13:13:15,123 Getting device ports...
-INFO: 2013-07-31 13:13:15,124 Finished.
-INFO: 2013-07-31 13:13:15,124 Calling devices...
-WARNING: 2013-07-31 13:13:21,156 Call device error. Port:5323
-WARNING: 2013-07-31 13:13:27,179 Call device error. Port:5324
-WARNING: 2013-07-31 13:13:33,202 Call device error. Port:5325
-WARNING: 2013-07-31 13:13:39,224 Call device error. Port:5326
-WARNING: 2013-07-31 13:13:45,247 Call device error. Port:5327
-WARNING: 2013-07-31 13:13:51,270 Call device error. Port:5328
-WARNING: 2013-07-31 13:13:57,294 Call device error. Port:5329
-WARNING: 2013-07-31 13:14:03,317 Call device error. Port:5330
-WARNING: 2013-07-31 13:14:09,339 Call device error. Port:5331
-WARNING: 2013-07-31 13:14:15,362 Call device error. Port:5332
-INFO: 2013-07-31 13:14:15,362 Finished
-INFO: 2013-07-31 13:14:15,362 Start making xml...
-INFO: 2013-07-31 13:14:15,377 Finished.
-INFO: 2013-07-31 13:14:32,067 Printing inventory data...
-INFO: 2013-07-31 13:16:47,675 Network manager started
-INFO: 2013-07-31 13:16:47,726 Getting device ports...
-INFO: 2013-07-31 13:16:47,726 Finished.
-INFO: 2013-07-31 13:16:47,727 Calling devices...
-WARNING: 2013-07-31 13:16:53,759 Call device error. Port:5323
-WARNING: 2013-07-31 13:16:59,782 Call device error. Port:5324
-WARNING: 2013-07-31 13:17:05,805 Call device error. Port:5325
-WARNING: 2013-07-31 13:17:11,828 Call device error. Port:5326
-WARNING: 2013-07-31 13:17:17,851 Call device error. Port:5327
-WARNING: 2013-07-31 13:17:23,874 Call device error. Port:5328
-WARNING: 2013-07-31 13:17:29,897 Call device error. Port:5329
-WARNING: 2013-07-31 13:17:35,920 Call device error. Port:5330
-WARNING: 2013-07-31 13:17:41,943 Call device error. Port:5331
-WARNING: 2013-07-31 13:17:47,966 Call device error. Port:5332
-INFO: 2013-07-31 13:17:47,966 Finished
-INFO: 2013-07-31 13:17:47,966 Start making xml...
-INFO: 2013-07-31 13:17:47,967 Finished.
-INFO: 2013-07-31 13:17:51,021 Printing inventory data...
-INFO: 2013-07-31 13:19:02,357 Network manager started
-INFO: 2013-07-31 13:19:02,408 Getting device ports...
-INFO: 2013-07-31 13:19:02,408 Finished.
-INFO: 2013-07-31 13:19:02,408 Calling devices...
-WARNING: 2013-07-31 13:19:08,440 Call device error. Port:5323
-WARNING: 2013-07-31 13:19:14,464 Call device error. Port:5324
-WARNING: 2013-07-31 13:19:20,487 Call device error. Port:5325
-WARNING: 2013-07-31 13:19:26,509 Call device error. Port:5326
-WARNING: 2013-07-31 13:19:32,531 Call device error. Port:5327
-WARNING: 2013-07-31 13:19:38,554 Call device error. Port:5328
-INFO: 2013-07-31 13:19:48,178 Network manager started
-INFO: 2013-07-31 13:19:48,228 Getting device ports...
-INFO: 2013-07-31 13:19:48,228 Finished.
-INFO: 2013-07-31 13:19:48,228 Calling devices...
-WARNING: 2013-07-31 13:19:54,261 Call device error. Port:5323
-WARNING: 2013-07-31 13:20:00,332 Call device error. Port:5324
-WARNING: 2013-07-31 13:20:06,355 Call device error. Port:5325
-WARNING: 2013-07-31 13:20:12,378 Call device error. Port:5326
-WARNING: 2013-07-31 13:20:18,401 Call device error. Port:5327
-WARNING: 2013-07-31 13:20:24,424 Call device error. Port:5328
-WARNING: 2013-07-31 13:20:30,448 Call device error. Port:5329
-WARNING: 2013-07-31 13:20:36,471 Call device error. Port:5330
-WARNING: 2013-07-31 13:20:42,494 Call device error. Port:5331
-WARNING: 2013-07-31 13:20:48,517 Call device error. Port:5332
-INFO: 2013-07-31 13:20:48,517 Finished
-INFO: 2013-07-31 13:20:48,517 Start making xml...
-INFO: 2013-07-31 13:20:48,518 Finished.
-INFO: 2013-07-31 13:20:51,913 Printing inventory data...
-INFO: 2013-07-31 13:20:52,018 Finished.
-INFO: 2013-08-01 15:39:05,552 Network manager started
-INFO: 2013-08-01 15:39:05,602 Getting device ports...
-INFO: 2013-08-01 15:39:05,603 Finished.
-INFO: 2013-08-01 15:39:05,603 Calling devices...
-WARNING: 2013-08-01 15:39:11,635 Call device error. Port:5323
-INFO: 2013-08-01 15:42:04,715 Network manager started
-INFO: 2013-08-01 15:42:04,764 Getting device ports...
-INFO: 2013-08-01 15:42:04,765 Finished.
-INFO: 2013-08-01 15:42:04,765 Calling devices...
-WARNING: 2013-08-01 15:42:10,797 Call device error. Port:5323
-INFO: 2013-08-02 13:28:35,815 Network manager started
-INFO: 2013-08-02 13:28:35,871 Getting device ports...
-INFO: 2013-08-02 13:28:35,872 Finished.
-INFO: 2013-08-02 13:28:35,873 Calling devices...
-INFO: 2013-08-02 13:28:36,163 Finished
-INFO: 2013-08-02 13:28:36,163 Start making xml...
-INFO: 2013-08-02 13:29:57,118 Network manager started
-INFO: 2013-08-02 13:29:57,176 Getting device ports...
-INFO: 2013-08-02 13:29:57,176 Finished.
-INFO: 2013-08-02 13:29:57,176 Calling devices...
-INFO: 2013-08-02 13:29:57,431 Finished
-INFO: 2013-08-02 13:29:57,431 Start making xml...
-INFO: 2013-08-02 13:32:32,269 Network manager started
-INFO: 2013-08-02 13:32:32,329 Getting device ports...
-INFO: 2013-08-02 13:32:32,329 Finished.
-INFO: 2013-08-02 13:32:32,329 Calling devices...
-INFO: 2013-08-02 13:32:32,575 Finished
-INFO: 2013-08-02 13:32:32,575 Start making xml...
-INFO: 2013-08-02 13:33:16,172 Network manager started
-INFO: 2013-08-02 13:33:16,230 Getting device ports...
-INFO: 2013-08-02 13:33:16,231 Finished.
-INFO: 2013-08-02 13:33:16,232 Calling devices...
-INFO: 2013-08-02 13:33:16,476 Finished
-INFO: 2013-08-02 13:33:16,476 Start making xml...
-INFO: 2013-08-02 13:34:20,330 Network manager started
-INFO: 2013-08-02 13:34:20,389 Getting device ports...
-INFO: 2013-08-02 13:34:20,390 Finished.
-INFO: 2013-08-02 13:34:20,391 Calling devices...
-INFO: 2013-08-02 13:34:20,627 Finished
-INFO: 2013-08-02 13:34:20,627 Start making xml...
-INFO: 2013-08-02 13:34:20,630 Finished.
-INFO: 2013-08-02 13:34:45,366 Network manager started
-INFO: 2013-08-02 13:34:45,423 Getting device ports...
-INFO: 2013-08-02 13:34:45,424 Finished.
-INFO: 2013-08-02 13:34:45,425 Calling devices...
-INFO: 2013-08-02 13:34:45,664 Finished
-INFO: 2013-08-02 13:34:45,669 Start making xml...
-INFO: 2013-08-02 13:34:45,676 Finished.
-INFO: 2013-08-05 12:15:33,845 Network manager started
-INFO: 2013-08-05 12:15:33,911 Getting device ports...
-INFO: 2013-08-05 12:15:33,912 Finished.
-INFO: 2013-08-05 12:15:33,913 Calling devices...
-INFO: 2013-08-05 12:15:34,201 Finished
-INFO: 2013-08-05 12:15:34,201 Start making xml...
-INFO: 2013-08-05 12:16:55,104 Network manager started
-INFO: 2013-08-05 12:16:55,160 Getting device ports...
-INFO: 2013-08-05 12:16:55,161 Finished.
-INFO: 2013-08-05 12:16:55,161 Calling devices...
-INFO: 2013-08-05 12:16:55,425 Finished
-INFO: 2013-08-05 12:16:55,426 Start making xml...
-INFO: 2013-08-05 12:16:55,427 Finished.
+INFO: 2013-08-08 15:09:36,666 Network manager started
+INFO: 2013-08-08 15:09:36,726 Getting device ports...
+INFO: 2013-08-08 15:09:36,726 Finished.
+INFO: 2013-08-08 15:09:36,726 Calling devices...
+INFO: 2013-08-08 15:09:36,947 Finished
+INFO: 2013-08-08 15:09:36,947 Start making xml...
+INFO: 2013-08-08 15:09:36,949 Finished.
+INFO: 2013-08-08 15:11:32,824 Network manager started
+INFO: 2013-08-08 15:11:32,875 Getting device ports...
+INFO: 2013-08-08 15:11:32,876 Finished.
+INFO: 2013-08-08 15:11:32,876 Calling devices...
+INFO: 2013-08-08 15:11:33,091 Finished
+INFO: 2013-08-08 15:11:33,091 Start making xml...
+INFO: 2013-08-08 15:11:33,092 Finished.
+INFO: 2013-08-08 15:14:26,345 Network manager started
+INFO: 2013-08-08 15:14:26,405 Getting device ports...
+INFO: 2013-08-08 15:14:26,405 Finished.
+INFO: 2013-08-08 15:14:26,406 Calling devices...
+INFO: 2013-08-08 15:14:26,623 Finished
+INFO: 2013-08-08 15:14:26,623 Start making xml...
+INFO: 2013-08-08 15:14:26,624 Finished.
+INFO: 2013-08-08 15:17:28,899 Gui started
+INFO: 2013-08-08 15:22:04,712 Metric managment widget started.
+INFO: 2013-08-08 15:22:04,821 Widget closed.
+INFO: 2013-08-08 15:22:04,822 Gui started.
+INFO: 2013-08-08 15:22:10,101 Widget closed.
+INFO: 2013-08-08 15:24:01,674 Metric managment widget started.
+INFO: 2013-08-08 15:24:01,779 Widget closed.
+INFO: 2013-08-08 15:24:01,779 Gui started.
+INFO: 2013-08-08 15:28:17,323 Metric managment widget started.
+INFO: 2013-08-08 15:28:17,437 Widget closed.
+INFO: 2013-08-08 15:28:17,438 Gui started.
+INFO: 2013-08-08 15:31:52,363 Metric managment widget started.
+INFO: 2013-08-08 15:31:52,469 Widget closed.
+INFO: 2013-08-08 15:31:52,470 Gui started.
+INFO: 2013-08-08 15:32:23,943 Metric managment widget started.
+INFO: 2013-08-08 15:32:24,055 Widget closed.
+INFO: 2013-08-08 15:32:24,056 Gui started.
+INFO: 2013-08-08 15:32:36,570 Metric managment widget started.
+INFO: 2013-08-08 15:32:36,658 Widget closed.
+INFO: 2013-08-08 15:32:36,659 Gui started.
+INFO: 2013-08-08 15:33:16,055 Metric managment widget started.
+INFO: 2013-08-08 15:33:16,149 Widget closed.
+INFO: 2013-08-08 15:33:16,150 Gui started.
+INFO: 2013-08-08 15:34:36,922 Metric managment widget started.
+INFO: 2013-08-08 15:35:08,826 Metric managment widget started.
+INFO: 2013-08-08 15:35:08,909 Widget closed.
+INFO: 2013-08-08 15:35:08,909 Gui started.
+INFO: 2013-08-08 15:36:11,202 Metric managment widget started.
+INFO: 2013-08-08 15:36:11,307 Widget closed.
+INFO: 2013-08-08 15:36:11,307 Gui started.
+INFO: 2013-08-08 15:42:13,201 Metric managment widget started.
+INFO: 2013-08-08 15:42:13,358 Widget closed.
+INFO: 2013-08-08 15:42:13,358 Gui started.
+INFO: 2013-08-08 15:42:59,685 Metric managment widget started.
+INFO: 2013-08-08 15:42:59,797 Widget closed.
+INFO: 2013-08-08 15:42:59,798 Gui started.
+INFO: 2013-08-08 15:55:51,043 Metric managment widget started.
+INFO: 2013-08-08 15:55:51,147 Widget closed.
+INFO: 2013-08-08 15:55:51,148 Gui started.
+INFO: 2013-08-08 15:56:14,019 Metric managment widget started.
+INFO: 2013-08-08 15:56:14,111 Widget closed.
+INFO: 2013-08-08 15:56:14,112 Gui started.
+INFO: 2013-08-08 15:56:35,073 Metric managment widget started.
+INFO: 2013-08-08 15:56:35,170 Widget closed.
+INFO: 2013-08-08 15:56:35,170 Gui started.
+INFO: 2013-08-08 15:57:53,565 Metric managment widget started.
+INFO: 2013-08-08 15:57:53,655 Widget closed.
+INFO: 2013-08-08 15:57:53,655 Gui started.
+INFO: 2013-08-08 15:58:38,007 Metric managment widget started.
+INFO: 2013-08-08 15:58:38,102 Widget closed.
+INFO: 2013-08-08 15:58:38,103 Gui started.
+INFO: 2013-08-08 16:03:05,174 Metric managment widget started.
+INFO: 2013-08-08 16:03:05,263 Widget closed.
+INFO: 2013-08-08 16:03:05,263 Gui started.
+INFO: 2013-08-08 16:03:21,600 Metric managment widget started.
+INFO: 2013-08-08 16:03:21,773 Widget closed.
+INFO: 2013-08-08 16:03:21,773 Gui started.
+INFO: 2013-08-08 16:03:44,224 Metric managment widget started.
+INFO: 2013-08-08 16:03:44,321 Widget closed.
+INFO: 2013-08-08 16:03:44,322 Gui started.
+INFO: 2013-08-08 16:04:10,704 Metric managment widget started.
+INFO: 2013-08-08 16:04:10,793 Widget closed.
+INFO: 2013-08-08 16:04:10,793 Gui started.
+INFO: 2013-08-08 16:04:24,120 Metric managment widget started.
+INFO: 2013-08-08 16:04:24,212 Widget closed.
+INFO: 2013-08-08 16:04:24,212 Gui started.
+INFO: 2013-08-08 16:04:43,272 Metric managment widget started.
+INFO: 2013-08-08 16:04:43,362 Widget closed.
+INFO: 2013-08-08 16:04:43,363 Gui started.
+INFO: 2013-08-08 16:04:55,029 Metric managment widget started.
+INFO: 2013-08-08 16:04:55,141 Widget closed.
+INFO: 2013-08-08 16:04:55,141 Gui started.
+INFO: 2013-08-08 16:05:30,632 Metric managment widget started.
+INFO: 2013-08-08 16:05:30,742 Widget closed.
+INFO: 2013-08-08 16:05:30,743 Gui started.
+INFO: 2013-08-08 16:05:39,977 Metric managment widget started.
+INFO: 2013-08-08 16:05:40,072 Widget closed.
+INFO: 2013-08-08 16:05:40,072 Gui started.
+INFO: 2013-08-08 16:05:51,701 Metric managment widget started.
+INFO: 2013-08-08 16:05:51,791 Widget closed.
+INFO: 2013-08-08 16:05:51,792 Gui started.
+INFO: 2013-08-08 17:00:11,761 Metric managment widget started.
+INFO: 2013-08-08 17:00:11,870 Widget closed.
+INFO: 2013-08-08 17:00:11,870 Gui started.
+INFO: 2013-08-08 17:00:46,714 Metric managment widget started.
+INFO: 2013-08-08 17:00:46,821 Widget closed.
+INFO: 2013-08-08 17:00:46,822 Gui started.
+INFO: 2013-08-08 17:00:59,277 Metric managment widget started.
+INFO: 2013-08-08 17:00:59,384 Widget closed.
+INFO: 2013-08-08 17:00:59,384 Gui started.
+INFO: 2013-08-08 17:01:36,673 Metric managment widget started.
+INFO: 2013-08-08 17:01:36,767 Widget closed.
+INFO: 2013-08-08 17:01:36,767 Gui started.
+INFO: 2013-08-08 17:02:00,122 Widget closed.
+INFO: 2013-08-08 17:02:36,800 Metric managment widget started.
+INFO: 2013-08-08 17:02:36,890 Widget closed.
+INFO: 2013-08-08 17:02:36,891 Gui started.
+INFO: 2013-08-08 17:02:39,730 Widget closed.
+INFO: 2013-08-08 17:02:51,625 Call 'add_metric' procedure.

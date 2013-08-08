@@ -5,6 +5,7 @@ import random
 #import os.path
 import os
 import sys
+import cx_Oracle
 from ConfigManager import ConfigManager
 
 class ServiceSimulator:
@@ -13,12 +14,15 @@ class ServiceSimulator:
         self.voip_path = cm.getVoipFile()
         self.bb_path = cm.getBbFile()
         self.iptv_path = cm.getIptvFile()
+        self.con = cx_Oracle.connect('orcdb/passw0rd@192.168.111.138/orcl')
+        self.cur = self.con.cursor()
+
         self.sep = ','
 
     def start(self):
         pass
     
-    def generateVoIP(self):
+    def generate_voip(self):
         voip_file = open(os.path.dirname(__file__)+self.voip_path,"a+")
 
         user_id = "user id"
@@ -35,7 +39,7 @@ class ServiceSimulator:
         voip_file.write(user_id+self.sep+sip1+self.sep+sip2+self.sep+delay+self.sep+echo+self.sep+codec+self.sep+pack_loss+self.sep+ts+self.sep+ts_start+self.sep+ts_end+'\n')
         voip_file.close()
 
-    def generateIPTV(self):
+    def generate_iptv(self):
         iptv_file = open(os.path.dirname(__file__)+self.iptv_path,"a+")
  
         user_id = "user id"
@@ -52,7 +56,7 @@ class ServiceSimulator:
         iptv_file.write(user_id+self.sep+chanel+self.sep+stb_id+self.sep+prev_chanel+self.sep+payment+self.sep+chan_spec+self.sep+parent+self.sep+bandwidth+self.sep+codec+self.sep+ts+'\n')
         iptv_file.close()
 
-    def generateBroadband(self):
+    def generate_broadband(self):
         bb_file = open(os.path.dirname(__file__)+self.bb_path,'a+')
 
         customer_info = "customer info"
@@ -69,17 +73,17 @@ class ServiceSimulator:
         bb_file.write(user_id+self.sep+ip+self.sep+mac+self.sep+up_speed+self.sep+down_speed+self.sep+delay+self.sep+pack_loss+self.sep+customer_info+self.sep+client_agent+self.sep+ts+'\n')
         bb_file.close()
 
+    def generate(self):
+        self.generate_voip()
+        self.generate_iptv()
+        self.generate_broadband()
 
 obj = ServiceSimulator()
-indicator = "Simulator is working"
-
+indicator = "Simulator is working."
+print indicator
+records = 0
 while(True):
-    os.system('clear')
-    indicator = indicator+"."
-    print indicator,
-    sys.stdout.flush()
-
-    obj.generateVoIP()
-    obj.generateIPTV()
-    obj.generateBroadband()
-    time.sleep(5)
+    print "Record:",records
+    obj.generate()
+    time.sleep(60)
+    records += 1

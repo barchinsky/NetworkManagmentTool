@@ -9,6 +9,8 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.bind(('', 9090))
 sock.listen(10)
 
+print 'Socket server is working.'
+
 while True:
     conn, addr = sock.accept()
     data = conn.recv(8192)
