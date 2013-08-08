@@ -99,7 +99,6 @@ class NetworkManager:
         with open('data/out','r') as infile:
             for line in infile:
                 performanceData = line.split('&&')
-		print len(performanceData)
             
                 root = etree.Element("Device")
                 devId = etree.Element("Id")
@@ -110,10 +109,6 @@ class NetworkManager:
                 sysDescr.text = performanceData[1]
                 root.append(sysDescr)
                 self.inventory.append(performanceData[1])
-
-                #sysLocation = etree.Element(SYSLOCATION)
-                #sysLocation.text = performanceData[2]
-                #root.append(sysLocation)
 
                 freePorts = etree.Element(FREEPORTS)
                 freePorts.text = performanceData[2]
@@ -218,6 +213,6 @@ class NetworkManager:
         pass
 
 '''--------------------------debug zone-------------------------'''
-nm = NetworkManager('192.168.111.138')
-nm.getDeviceInfo()
+#nm = NetworkManager('192.168.111.138')
+#nm.getDeviceInfo()
 #nm.printToFile()

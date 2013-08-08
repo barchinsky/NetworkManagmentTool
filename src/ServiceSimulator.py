@@ -54,7 +54,6 @@ class ServiceSimulator:
 
     def generateBroadband(self):
         bb_file = open(os.path.dirname(__file__)+self.bb_path,'a+')
-        sep = ","
 
         customer_info = "customer info"
         ts = str(time.time())

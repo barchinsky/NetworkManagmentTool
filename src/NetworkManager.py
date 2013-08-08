@@ -1,12 +1,14 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
+# Manage
+
 import sys
 from pysnmp.entity.rfc3413.oneliner import cmdgen
 import xml.etree.ElementTree as ET
 from lxml import etree
 import re
-from InsertDB import ConnectionDB
+#from InsertDB import ConnectionDB
 import logging
 import time
 from ftplib import FTP
@@ -109,10 +111,6 @@ class NetworkManager:
                 sysDescr.text = performanceData[1]
                 root.append(sysDescr)
                 self.inventory.append(performanceData[1])
-
-                #sysLocation = etree.Element(SYSLOCATION)
-                #sysLocation.text = performanceData[2]
-                #root.append(sysLocation)
 
                 freePorts = etree.Element(FREEPORTS)
                 freePorts.text = performanceData[2]

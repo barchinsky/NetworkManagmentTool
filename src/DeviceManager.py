@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+# Generate device data for vxsimulator
 import random
 
 class DeviceManager:
