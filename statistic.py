@@ -6,6 +6,8 @@ from pylab import *
 import time
 from PyQt4 import QtGui, QtCore
 import sys
+import numpy as np
+import re
 
 class Statistic:
 
@@ -13,14 +15,15 @@ class Statistic:
         pass
   
         
-    def select_dev(self,text,M_T):
-        
+    def select_dev(self,text,M_T,time_st):
+        #tm = time.time()
+        #print tm
         print "service is "+text
         print "metric is "+M_T
         con = cx_Oracle.connect('orcdb/passw0rd@192.168.111.138/orcl')
         self.cur = con.cursor()
         if text=="BROADBAND":
-            self.metr_BB(M_T)
+            self.metr_BB(M_T,time_st)
 
         elif text=="IPTV":
             self.metr_IPTV()
@@ -31,33 +34,176 @@ class Statistic:
         con.close()
 
 
-    def metr_BB(self,M_T):
+    def metr_BB(self,M_T,time_st):
         #M_T="STREAMUP"
+        ts = time.time()
+        print ts
+        time_st = re.findall('[0-9]+',time_st)
+        time_st = int(time_st[0])
+        #tm = ts - (time_st*60)
+        #print tm
         I_S = "BROADBAND"
         self.cur.execute("select MAX from METRICS WHERE IDSERVICE=:I_S AND METRIC_TYPE=:M_T",{'I_S':I_S,'M_T':M_T})
         data = self.cur.fetchall()
         lim = data[0][0]
-        self.cur.execute("select DELAY from BROADBAND")
-        delay = self.cur.fetchall()
-        
-        self.cur.execute("select STREAMUP from BROADBAND")
-        s_up = self.cur.fetchall()
-        self.cur.execute("select STREAMDOWN from BROADBAND")
-        s_down = self.cur.fetchall()
-        self.cur.execute("select PACKET_LOSS from BROADBAND")
-        p_loss = self.cur.fetchall()
+        delay = []
+        r = "MAX(DELAY)"
+        t_str = "select "+r+" from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts"+",{'tm':tm,'ts':ts})"
+        print t_str
+        if time_st == 15:
+            tm = ts - 60
+            for i in range(15):
+                self.cur.execute("select "+r+" from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                #self.cur.execute(":t_str",{'t_str':t_str})
+                delay.append(self.cur.fetchall())
+                ts = tm
+                tm-=60
+
+        elif time_st == 30:
+            tm = ts - 180
+            for i in range(10):
+                self.cur.execute("select MAX(DELAY) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                #print self.cur
+                delay.append(self.cur.fetchall())
+                ts = tm
+                tm-=180
+        elif time_st == 60:
+            tm = ts - 10*60
+            for i in range(6):
+                self.cur.execute("select MAX(DELAY) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                #print self.cur
+                delay.append(self.cur.fetchall())
+                ts = tm
+                tm-=10*60
+        elif time_st == 1:
+            tm = ts - 60*60
+            for i in range(24):
+                self.cur.execute("select "+r+" from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                #print self.cur
+                delay.append(self.cur.fetchall())
+                ts = tm
+                tm-=60*60
+
+
+        #print delay[0][0][0]
+        s_up = []
+        ts = time.time()
+        if time_st == 15:
+            tm =ts - 60
+            for i in range(15):
+                self.cur.execute("select MAX(STREAMUP) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                #print self.cur.fetchall()
+                s_up.append(self.cur.fetchall())
+                ts = tm
+                tm-=60
+
+        elif time_st == 30:
+            tm = ts - 180
+            for i in range(10):
+                self.cur.execute("select MAX(STREAMUP) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                #print self.cur
+                s_up.append(self.cur.fetchall())
+                ts = tm
+                tm-=180
+        elif time_st == 60:
+            tm = ts - 10*60
+            for i in range(6):
+                self.cur.execute("select MAX(STREAMUP) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                #print self.cur
+                s_up.append(self.cur.fetchall())
+                ts = tm
+                tm-=10*60
+        elif time_st == 1:
+            tm = ts - 60*60
+            for i in range(24):
+                self.cur.execute("select MAX(STREAMUP) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                #print self.cur
+                s_up.append(self.cur.fetchall())
+                ts = tm
+                tm-=60*60
+         
+        s_down = []
+        ts = time.time()
+        if time_st == 15:
+            tm =ts - 60
+            for i in range(15):
+                self.cur.execute("select MAX(STREAMDOWN) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                #print self.cur.fetchall()
+                s_down.append(self.cur.fetchall())
+                ts = tm
+                tm-=60
+
+        elif time_st == 30:
+            tm = ts - 180
+            for i in range(10):
+                self.cur.execute("select MAX(STREAMDOWN) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                #print self.cur
+                s_down.append(self.cur.fetchall())
+                ts = tm
+                tm-=180
+        elif time_st == 60:
+            tm = ts - 10*60
+            for i in range(6):
+                self.cur.execute("select MAX(STREAMDOWN) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                #print self.cur
+                s_down.append(self.cur.fetchall())
+                ts = tm
+                tm-=10*60
+        elif time_st == 1:
+            tm = ts - 60*60
+            for i in range(24):
+                self.cur.execute("select MAX(STREAMDOWN) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                #print self.cur
+                s_down.append(self.cur.fetchall())
+                ts = tm
+                tm-=60*60 
+        p_loss = []
+        ts = time.time()
+        if time_st == 15:
+            tm =ts - 60
+            for i in range(15):
+                self.cur.execute("select MAX(PACKET_LOSS) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                #print self.cur.fetchall()
+                p_loss.append(self.cur.fetchall())
+                ts = tm
+                tm-=60
+
+        elif time_st == 30:
+            tm = ts - 180
+            for i in range(10):
+                self.cur.execute("select MAX(PACKET_LOSS) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                #print self.cur
+                p_loss.append(self.cur.fetchall())
+                ts = tm
+                tm-=180
+        elif time_st == 60:
+            tm = ts - 10*60
+            for i in range(6):
+                self.cur.execute("select MAX(PACKET_LOSS) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                #print self.cur
+                p_loss.append(self.cur.fetchall())
+                ts = tm
+                tm-=10*60
+        elif time_st == 1:
+            tm = ts - 60*60
+            for i in range(24):
+                self.cur.execute("select MAX(PACKET_LOSS) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                #print self.cur
+                p_loss.append(self.cur.fetchall())
+                ts = tm
+                tm-=60*60 
 
 
         tmp = 0
         count = 0
         avr = 0
-        for el in delay:
-            tmp+=el[0]
+        '''for el in range(len(delay)):
+            tmp+=delay[el]
             count+=1
         if count==0:
             avr = 0
         else:
-            avr=tmp/count
+            avr=tmp/count'''
         
         self.grafic_BB(delay,avr,time,s_up,s_down,p_loss,lim,M_T)
 
@@ -107,7 +253,7 @@ class Statistic:
 
     def grafic_BB(self,delay,avr,time,s_up,s_down,p_loss,lim,M_T):
         if M_T == "DELAY":
-            y = avr
+            '''y = avr
             plt.figure(21)
             plt.plot(delay)  
             favr=[]
@@ -121,29 +267,85 @@ class Statistic:
             plt.legend(['delay','average','limit'])
             plt.xlim(0,len(delay))
             plt.ylim(0,10)
+            plt.show()'''
+            
+            #print delay
+            x = []
+            y = []
+            for el in delay:
+                if el[0][0] == None:
+                    y.append(0)
+                else:
+                    y.append(el[0][0])
+            print y
+            for i in range(len(delay)):
+                x.append(i+1)
+                
+            print x
+            plt.bar(x,y,1)
+            plt.xticks(x)
+            plt.legend(['limit is '+str(lim)])
             plt.show()
+
 
         elif M_T == "STREAMUP":
-            plt.plot(s_up,'g')
-            plt.legend(['stream_up'])
-            plt.xlim(0,len(s_up))
-            plt.ylim(0,10000)
+          
+            x = []
+            y = []
+            for el in s_up:
+                if el[0][0] == None:
+                    y.append(0)
+                else:
+                    y.append(el[0][0])
+            print y
+            for i in range(len(s_up)):
+                x.append(i+1)
+                
+            print x
+            plt.bar(x,y,1)
+            plt.xticks(x)
+            plt.legend(['limit is '+str(lim)])
+
             plt.show()
+
 
         elif M_T == "STREAMDOWN":
-            plt.plot(s_down,'r')
-            plt.legend(['stream_down'])
-            plt.xlim(0,len(s_up))
-            plt.ylim(0,10000)
-            plt.show()
+            x = []
+            y = []
+            for el in s_down:
+                if el[0][0] == None:
+                    y.append(0)
+                else:
+                    y.append(el[0][0])
+            print y
+            for i in range(len(s_down)):
+                x.append(i+1)
+                
+            print x
+            plt.bar(x,y,1)
+            plt.xticks(x)
+            plt.legend(['limit is '+str(lim)])
 
+            plt.show() 
 
         elif M_T == "PACKET_LOSS":
-            plt.plot(p_loss,'g')
-            plt.legend(['p_loss'])
-            plt.xlim(0,len(p_loss))
-            plt.ylim(0,200)
-            plt.show()
+            x = []
+            y = []
+            for el in p_loss:
+                if el[0][0] == None:
+                    y.append(0)
+                else:
+                    y.append(el[0][0])
+            print y
+            for i in range(len(p_loss)):
+                x.append(i+1)
+                
+            print x
+            plt.bar(x,y,1)
+            plt.xticks(x)
+            plt.legend(['limit is '+str(lim)])
+
+            plt.show() 
 
     def grafic_IPTV(self,ch_free,ch_paid):
         x = [ch_free,ch_paid]

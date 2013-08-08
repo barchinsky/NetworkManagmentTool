@@ -29,6 +29,9 @@ class ComboBoxBasic(QtGui.QWidget):
         self.combo2 = QtGui.QComboBox()
         self.vbox.addWidget(self.combo2)
 
+        self.combo3 = QtGui.QComboBox()
+        self.vbox.addWidget(self.combo3)
+        
        
 
      
@@ -47,12 +50,16 @@ class ComboBoxBasic(QtGui.QWidget):
             self.combo2.addItems(el)
 
         self.connect(self.combo, QtCore.SIGNAL('activated(QString)'), self.hello)
+        
+        distrolist3 = ['15 min','30 min', '60 min','1 day']
+        self.combo3.addItems(distrolist3)
+
         quit = QtGui.QPushButton('VIEW STATISTIC', self)
-        quit.setGeometry(130, 190, 160, 35)
+        quit.setGeometry(130, 210, 170, 35)
         self.connect(quit, QtCore.SIGNAL('clicked()'),self.combo_chosen)
         
     def combo_chosen(self):
-        self.obj.select_dev(str(self.combo.currentText()),str(self.combo2.currentText()))
+        self.obj.select_dev(str(self.combo.currentText()),str(self.combo2.currentText()),str(self.combo3.currentText()))
             
     def hello(self):
         self.t = self.combo.currentText()
