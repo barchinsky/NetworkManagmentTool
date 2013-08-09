@@ -85,5 +85,5 @@ records = 0
 while(True):
     print "Record:",records
     obj.generate()
-    time.sleep(60)
+    time.sleep(1)
     records += 1
