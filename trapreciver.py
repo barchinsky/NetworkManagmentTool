@@ -5,12 +5,19 @@ from pysnmp.proto import api
 import cx_Oracle
 import logging
 import sys
+<<<<<<< Updated upstream
 sys.path.append('./src')
+=======
+
+sys.path.append("src/")
+
+from LogManager import *
+>>>>>>> Stashed changes
 from ConfigManager import ConfigManager
 
 
 cm = ConfigManager()
-
+print cm.getTrapIp()
 def GetTrapData(varBinds):
     
     for val in varBinds:
@@ -80,7 +87,7 @@ transportDispatcher.registerRecvCbFun(cbFun)
 
 # UDP/IPv4
 transportDispatcher.registerTransport(
-    udp.domainName, udp.UdpSocketTransport().openServerMode((cm.getTrapIp(), 5050))
+    udp.domainName, udp.UdpSocketTransport().openServerMode(("192.168.111.124", 5050))
 )
 
 transportDispatcher.jobStarted(1)

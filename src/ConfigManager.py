@@ -44,7 +44,11 @@ class ConfigManager():
 		self.config.set('service', 'voip', '../data/voip.csv')
 		self.config.set('service', 'bb', '../data/bb.csv')
 
+<<<<<<< Updated upstream
 		with open(self.getConfFilePath(), 'wb') as configfile:
+=======
+		with open('conf/configs.cfg', 'wb') as configfile:
+>>>>>>> Stashed changes
 			self.config.write(configfile)
 
 	def PrintConfFile(self):

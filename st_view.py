@@ -1,5 +1,6 @@
 import sys
 from PyQt4 import QtGui, QtCore
+from PyQt4.QtGui import QLineEdit
 from statistic import *
 import cx_Oracle
 
@@ -17,24 +18,26 @@ class ComboBoxBasic(QtGui.QWidget):
         QtGui.QMainWindow.__init__(self)
         self.setWindowTitle('VIEW STATISTIC')
         # Set the window dimensions
-        self.resize(250,290)
+        #self.resize(250,290)]
+        self.setFixedSize(250,290)
+
         
         # vertical layout for widgets
-        self.vbox = QtGui.QVBoxLayout()
+        self.vbox = QtGui.QGridLayout()
         self.setLayout(self.vbox)
 
         # Create a combo box and add it to our layout
         self.combo = QtGui.QComboBox()
-        self.vbox.addWidget(self.combo)
+        self.vbox.addWidget(self.combo,1,0)
         self.combo2 = QtGui.QComboBox()
-        self.vbox.addWidget(self.combo2)
+        self.vbox.addWidget(self.combo2,2,0)
 
         self.combo3 = QtGui.QComboBox()
-        self.vbox.addWidget(self.combo3)
+        self.vbox.addWidget(self.combo3,3,0)
 
-        self.combo4 = QtGui.QComboBox()
-        self.vbox.addWidget(self.combo4)
-        
+        self.combo4 = QtGui.QComboBox(self)
+        self.vbox.addWidget(self.combo4,4,1)
+
        
 
      
@@ -59,13 +62,30 @@ class ComboBoxBasic(QtGui.QWidget):
 
         distrolist4 = ['MAX','AVG', 'MIN']
         self.combo4.addItems(distrolist4)
+        
+        self.combo4.move(130,49)
 
         quit = QtGui.QPushButton('VIEW STATISTIC', self)
         quit.setGeometry(90, 250, 140, 35)
-        self.connect(quit, QtCore.SIGNAL('clicked()'),self.combo_chosen)
+        self.vbox.addWidget(quit,5,0)
         
+        self.le = QLineEdit(self)
+        #self.le.setGeometry(1,200,75,35)
+        self.vbox.addWidget(self.le,4,0)
+      
+        self.connect(self.combo2, QtCore.SIGNAL('activated(QString)'),self.edit)
+
+        self.connect(self.combo4, QtCore.SIGNAL('activated(QString)'),self.edit)
+        
+        self.connect(quit, QtCore.SIGNAL('clicked()'),self.combo_chosen)
+
     def combo_chosen(self):
-        self.obj.select_dev(str(self.combo.currentText()),str(self.combo2.currentText()),str(self.combo3.currentText()),str(self.combo4.currentText()))
+        self.obj.select_dev(str(self.combo.currentText()),str(self.combo2.currentText()),str(self.combo3.currentText()),str(self.combo4.currentText()),str(self.le.displayText()))
+
+    def edit(self):
+        i=str(self.combo4.currentText())+"("+str(self.combo2.currentText())+")"
+
+        self.le.setText(str(i))
             
     def hello(self):
         self.t = self.combo.currentText()

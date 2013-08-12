@@ -15,7 +15,8 @@ class Statistic:
         pass
   
         
-    def select_dev(self,text,M_T,time_st,op_type):
+    def select_dev(self,text,M_T,time_st,op_type,koef):
+        print koef
         #tm = time.time()
         #print tm
         print "service is "+text
@@ -25,18 +26,18 @@ class Statistic:
         con = cx_Oracle.connect('orcdb/passw0rd@192.168.111.138/orcl')
         self.cur = con.cursor()
         if text=="BROADBAND":
-            self.metr_BB(M_T,time_st,op_type)
+            self.metr_BB(M_T,time_st,op_type,koef)
 
         elif text=="IPTV":
             self.metr_IPTV()
         elif text=="VOIP":
-            self.metr_VOIP(M_T,time_st,op_type)
+            self.metr_VOIP(M_T,time_st,op_type,koef)
         
         self.cur.close()
         con.close()
 
 
-    def metr_BB(self,M_T,time_st,op_type):
+    def metr_BB(self,M_T,time_st,op_type,koef):
         #M_T="STREAMUP"
         ts = time.time()
         print ts
@@ -55,7 +56,7 @@ class Statistic:
         if time_st == 15:
             tm = ts - 60
             for i in range(15):
-                self.cur.execute("select "+op_type+"(DELAY) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #self.cur.execute(":t_str",{'t_str':t_str})
                 delay.append(self.cur.fetchall())
                 ts = tm
@@ -64,7 +65,7 @@ class Statistic:
         elif time_st == 30:
             tm = ts - 180
             for i in range(10):
-                self.cur.execute("select "+op_type+"(DELAY) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #print self.cur
                 delay.append(self.cur.fetchall())
                 ts = tm
@@ -72,7 +73,7 @@ class Statistic:
         elif time_st == 60:
             tm = ts - 10*60
             for i in range(6):
-                self.cur.execute("select "+op_type+"(DELAY) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #print self.cur
                 delay.append(self.cur.fetchall())
                 ts = tm
@@ -80,7 +81,7 @@ class Statistic:
         elif time_st == 1:
             tm = ts - 60*60
             for i in range(24):
-                self.cur.execute("select "+op_type+"(DELAY) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #print self.cur
                 delay.append(self.cur.fetchall())
                 ts = tm
@@ -93,7 +94,7 @@ class Statistic:
         if time_st == 15:
             tm =ts - 60
             for i in range(15):
-                self.cur.execute("select "+op_type+"(STREAMUP) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #print self.cur.fetchall()
                 s_up.append(self.cur.fetchall())
                 ts = tm
@@ -102,7 +103,7 @@ class Statistic:
         elif time_st == 30:
             tm = ts - 180
             for i in range(10):
-                self.cur.execute("select "+op_type+"(STREAMUP) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #print self.cur
                 s_up.append(self.cur.fetchall())
                 ts = tm
@@ -110,7 +111,7 @@ class Statistic:
         elif time_st == 60:
             tm = ts - 10*60
             for i in range(6):
-                self.cur.execute("select "+op_type+"(STREAMUP) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #print self.cur
                 s_up.append(self.cur.fetchall())
                 ts = tm
@@ -118,7 +119,7 @@ class Statistic:
         elif time_st == 1:
             tm = ts - 60*60
             for i in range(24):
-                self.cur.execute("select "+op_type+"(STREAMUP) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #print self.cur
                 s_up.append(self.cur.fetchall())
                 ts = tm
@@ -129,7 +130,7 @@ class Statistic:
         if time_st == 15:
             tm =ts - 60
             for i in range(15):
-                self.cur.execute("select "+op_type+"(STREAMDOWN) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #print self.cur.fetchall()
                 s_down.append(self.cur.fetchall())
                 ts = tm
@@ -138,7 +139,7 @@ class Statistic:
         elif time_st == 30:
             tm = ts - 180
             for i in range(10):
-                self.cur.execute("select "+op_type+"(STREAMDOWN) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #print self.cur
                 s_down.append(self.cur.fetchall())
                 ts = tm
@@ -146,7 +147,7 @@ class Statistic:
         elif time_st == 60:
             tm = ts - 10*60
             for i in range(6):
-                self.cur.execute("select "+op_type+"(STREAMDOWN) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #print self.cur
                 s_down.append(self.cur.fetchall())
                 ts = tm
@@ -154,7 +155,7 @@ class Statistic:
         elif time_st == 1:
             tm = ts - 60*60
             for i in range(24):
-                self.cur.execute("select "+op_type+"(STREAMDOWN) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #print self.cur
                 s_down.append(self.cur.fetchall())
                 ts = tm
@@ -164,7 +165,7 @@ class Statistic:
         if time_st == 15:
             tm =ts - 60
             for i in range(15):
-                self.cur.execute("select "+op_type+"(PACKET_LOSS) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #print self.cur.fetchall()
                 p_loss.append(self.cur.fetchall())
                 ts = tm
@@ -173,7 +174,7 @@ class Statistic:
         elif time_st == 30:
             tm = ts - 180
             for i in range(10):
-                self.cur.execute("select "+op_type+"(PACKET_LOSS) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #print self.cur
                 p_loss.append(self.cur.fetchall())
                 ts = tm
@@ -181,7 +182,7 @@ class Statistic:
         elif time_st == 60:
             tm = ts - 10*60
             for i in range(6):
-                self.cur.execute("select "+op_type+"(PACKET_LOSS) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #print self.cur
                 p_loss.append(self.cur.fetchall())
                 ts = tm
@@ -189,7 +190,7 @@ class Statistic:
         elif time_st == 1:
             tm = ts - 60*60
             for i in range(24):
-                self.cur.execute("select "+op_type+"(PACKET_LOSS) from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from BROADBAND WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #print self.cur
                 p_loss.append(self.cur.fetchall())
                 ts = tm
@@ -209,7 +210,7 @@ class Statistic:
         self.grafic_IPTV(ch_free,ch_paid)
 
 
-    def metr_VOIP(self,M_T,time_st,op_type):
+    def metr_VOIP(self,M_T,time_st,op_type,koef):
         I_S = "VOIP"
         self.cur.execute("select MAX from METRICS WHERE IDSERVICE=:I_S AND METRIC_TYPE=:M_T",{'I_S':I_S,'M_T':M_T})
         data = self.cur.fetchall()
@@ -223,7 +224,7 @@ class Statistic:
         if time_st == 15:
             tm = ts - 60
             for i in range(15):
-                self.cur.execute("select "+op_type+"(DELAY) from VOIP WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from VOIP WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #self.cur.execute(":t_str",{'t_str':t_str})
                 delay_vo.append(self.cur.fetchall())
                 ts = tm
@@ -232,7 +233,7 @@ class Statistic:
         elif time_st == 30:
             tm = ts - 180
             for i in range(10):
-                self.cur.execute("select "+op_type+"(DELAY) from VOIP WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from VOIP WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #print self.cur
                 delay_vo.append(self.cur.fetchall())
                 ts = tm
@@ -240,7 +241,7 @@ class Statistic:
         elif time_st == 60:
             tm = ts - 10*60
             for i in range(6):
-                self.cur.execute("select "+op_type+"(DELAY) from VOIP WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from VOIP WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #print self.cur
                 delay_vo.append(self.cur.fetchall())
                 ts = tm
@@ -248,7 +249,7 @@ class Statistic:
         elif time_st == 1:
             tm = ts - 60*60
             for i in range(24):
-                self.cur.execute("select "+op_type+"(DELAY) from VOIP WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from VOIP WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #print self.cur
                 delay_vo.append(self.cur.fetchall())
                 ts = tm
@@ -259,7 +260,7 @@ class Statistic:
         if time_st == 15:
             tm = ts - 60
             for i in range(15):
-                self.cur.execute("select "+op_type+"(ECHO) from VOIP WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from VOIP WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #self.cur.execute(":t_str",{'t_str':t_str})
                 echo.append(self.cur.fetchall())
                 ts = tm
@@ -268,7 +269,7 @@ class Statistic:
         elif time_st == 30:
             tm = ts - 180
             for i in range(10):
-                self.cur.execute("select "+op_type+"(ECHO) from VOIP WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from VOIP WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #print self.cur
                 echo.append(self.cur.fetchall())
                 ts = tm
@@ -276,7 +277,7 @@ class Statistic:
         elif time_st == 60:
             tm = ts - 10*60
             for i in range(6):
-                self.cur.execute("select "+op_type+"(ECHO) from VOIP WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from VOIP WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #print self.cur
                 echo.append(self.cur.fetchall())
                 ts = tm
@@ -284,7 +285,7 @@ class Statistic:
         elif time_st == 1:
             tm = ts - 60*60
             for i in range(24):
-                self.cur.execute("select "+op_type+"(ECHO) from VOIP WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from VOIP WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #print self.cur
                 echo.append(self.cur.fetchall())
                 ts = tm
@@ -296,7 +297,7 @@ class Statistic:
         if time_st == 15:
             tm = ts - 60
             for i in range(15):
-                self.cur.execute("select "+op_type+"(PACKET_LOSS) from VOIP WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from VOIP WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #self.cur.execute(":t_str",{'t_str':t_str})
                 p_loss_vo.append(self.cur.fetchall())
                 ts = tm
@@ -305,7 +306,7 @@ class Statistic:
         elif time_st == 30:
             tm = ts - 180
             for i in range(10):
-                self.cur.execute("select "+op_type+"(PACKET_LOSS)  from VOIP WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from VOIP WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #print self.cur
                 p_loss_vo.append(self.cur.fetchall())
                 ts = tm
@@ -313,7 +314,7 @@ class Statistic:
         elif time_st == 60:
             tm = ts - 10*60
             for i in range(6):
-                self.cur.execute("select "+op_type+"(PACKET_LOSS) from VOIP WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from VOIP WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #print self.cur
                 p_loss_vo.append(self.cur.fetchall())
                 ts = tm
@@ -321,7 +322,7 @@ class Statistic:
         elif time_st == 1:
             tm = ts - 60*60
             for i in range(24):
-                self.cur.execute("select "+op_type+"(PACKET_LOSS) from VOIP WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
+                self.cur.execute("select "+koef+" from VOIP WHERE TIMESTAMP>:tm AND TIMESTAMP<:ts",{'tm':tm,'ts':ts})
                 #print self.cur
                 p_loss_vo.append(self.cur.fetchall())
                 ts = tm
