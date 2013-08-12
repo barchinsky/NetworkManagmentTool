@@ -11,9 +11,9 @@ class ConfigManager():
 	def getConfFilePath(self):
 		dirname = os.path.dirname(__file__)
 		if dirname == "src":
-			return 'conf/configs.cfg'
+			return '../conf/configs.cfg'
 		else:
-			return '../conf/configs.cfg' 
+			return 'conf/configs.cfg' 
 
 	def CreateConfFile(self):
 		#create config file
@@ -121,3 +121,4 @@ class ConfigManager():
 	#path to bb.csv file
 	def getBbFile(self):
 		return self.config.get('service', 'bb')
+
