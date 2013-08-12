@@ -1,11 +1,19 @@
 #!/usr/bin/env python
 
 import ConfigParser
+import os
 
 class ConfigManager():
 	def __init__(self):
 		self.config = ConfigParser.RawConfigParser()
-		self.CreateConfFile()
+		self.config.read(self.getConfFilePath())
+
+	def getConfFilePath(self):
+		dirname = os.path.dirname(__file__)
+		if dirname == "src":
+			return 'conf/configs.cfg'
+		else:
+			return '../conf/configs.cfg' 
 
 	def CreateConfFile(self):
 		#create config file
@@ -16,7 +24,7 @@ class ConfigManager():
 		self.config.set('logging', 'trap_log', 'data/trap.log')
 
 		self.config.add_section('trap')
-		self.config.set('trap', 'ip', "192.168.111.126")
+		self.config.set('trap', 'ip', "192.168.111.124")
 		self.config.set('trap', 'trap_list', 'data/traps.txt')
 		self.config.set('trap', 'connection', 'orcdb/passw0rd@192.168.111.138/orcl')
 
@@ -36,7 +44,7 @@ class ConfigManager():
 		self.config.set('service', 'voip', '../data/voip.csv')
 		self.config.set('service', 'bb', '../data/bb.csv')
 
-		with open('../conf/configs.cfg', 'wb') as configfile:
+		with open(self.getConfFilePath(), 'wb') as configfile:
 			self.config.write(configfile)
 
 	def PrintConfFile(self):
@@ -113,4 +121,3 @@ class ConfigManager():
 	#path to bb.csv file
 	def getBbFile(self):
 		return self.config.get('service', 'bb')
-
