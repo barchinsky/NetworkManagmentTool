@@ -13,7 +13,7 @@ import logging
 import time
 from ftplib import FTP
 
-sys.path.append("./src")
+#sys.path.append("./src")
 from CONST import *
 from LogManager import Log
 from ConfigManager import ConfigManager

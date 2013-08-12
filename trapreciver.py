@@ -4,6 +4,8 @@ from pyasn1.codec.ber import decoder
 from pysnmp.proto import api
 import cx_Oracle
 import logging
+import sys
+sys.path.append('./src')
 from ConfigManager import ConfigManager
 
 

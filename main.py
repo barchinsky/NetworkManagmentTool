@@ -20,7 +20,7 @@ class MyMainWindow(QMainWindow):
 
 
 class AddMetricWidget(QWidget):
-    def __init__(self,service_type,service_available_metric):
+    def __init__(self,service_type,service_available_metric=""):
         super(AddMetricWidget,self).__init__()
 
         # connect to database
@@ -66,6 +66,8 @@ class AddMetricWidget(QWidget):
         self.setLayout(self.layout)
 
         self.connect(self.add,SIGNAL("clicked()"),self,SLOT("ok_pressed()"))
+        self.connect(self.add,SIGNAL("clicked()"),self,SLOT("close()"))
+
         self.connect(self.cancel,SIGNAL("clicked()"),self,SLOT("close()"))
 
         Log("Widget closed.")
@@ -156,7 +158,7 @@ class MetricManagmentWidget(QWidget):
         self.cancel = QPushButton("Cancel")
 
         self.connect(self.cancel, SIGNAL('clicked()'),qApp,SLOT('quit()'))
-        self.connect(self.ok,SIGNAL('clicked()'),self,SLOT('save()'))
+        self.connect(self.ok,SIGNAL('clicked()'),self,SLOT('delete_item()'))
         #show add metric widget and disable base widget
         self.connect(self.action_type_combo,SIGNAL("activated(int)"),self,SLOT("addMetric(int)"))
         self.connect(self.action_type_combo,SIGNAL("activated(int)"),self,SLOT("disable(int)"))
@@ -214,30 +216,40 @@ class MetricManagmentWidget(QWidget):
         self.setDisabled(False)
 
     @pyqtSlot()
-    def save(self):
+    def delete_item(self):
         print "Saved\n"
         m = str(self.metric_type_combo.currentText())
-        self.cur.execute("delete from METRICS where METRIC_TYPE=:m",{"m":m})
-        self.con.commit()
+        try:
+            self.cur.execute("delete from METRICS where METRIC_TYPE=:m",{"m":m})
+            self.con.commit()
+            self.show_info("Item deleted succesfull.")
+            #self = MetricManagmentWidget()
+        except Exception,e:
+            self.show_info(e)
+            Log(e,1)
+
 
     @pyqtSlot(int)
     def addMetric(self,choice):
-        services = [self.iptv_m,self.voip_m,self.bb_m]
+        services = [None,self.iptv_m,self.voip_m,self.bb_m]
         if choice==2:
             self.wid = AddMetricWidget(self.service_type_combo.currentText(), services[ self.service_type_combo.currentIndex() ] )
             self.wid.show()
 
             self.connect(self.wid.cancel,SIGNAL("clicked()"),self,SLOT("enable()"))
+            self.connect(self.wid.add,SIGNAL("clicked()"),self,SLOT("enable()"))
 
     def get_iptv_metrics(self):
         self.cur.execute("select * from IPTV")
         for column_desc in self.cur.description:
             self.iptv_m.append(column_desc[0])
+        print "Iptv\n", self.iptv_m
 
     def get_voip_metrics(self):
         self.cur.execute("select * from VOIP")
         for column_desc in self.cur.description:
             self.voip_m.append(column_desc[0])
+        print "Voip", self.voip_m
 
     def get_bb_metrics(self):
         self.cur.execute("select * from BROADBAND")
@@ -271,6 +283,13 @@ class MetricManagmentWidget(QWidget):
         self.get_iptv_metrics()
         self.get_bb_metrics()
         self.get_voip_metrics()
+
+    def show_info(self,e):
+        msgBox = QMessageBox()
+        msgBox.setText(str(e))
+        msgBox.setStandardButtons(QMessageBox.Ok)
+        ret = msgBox.exec_();
+
 
 
 
