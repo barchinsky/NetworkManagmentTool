@@ -23,7 +23,8 @@ class ServiceSimulator:
         pass
     
     def generate_voip(self):
-        voip_file = open(os.path.dirname(__file__)+self.voip_path,"a+")
+        #voip_file = open(os.path.dirname(__file__)+self.voip_path,"a+")
+        voip_file = open(self.voip_path,'a+')
 
         user_id = "user id"
         ts = str(time.time())
@@ -40,7 +41,8 @@ class ServiceSimulator:
         voip_file.close()
 
     def generate_iptv(self):
-        iptv_file = open(os.path.dirname(__file__)+self.iptv_path,"a+")
+        #iptv_file = open(os.path.dirname(__file__)+self.iptv_path,"a+")
+        iptv_file = open(self.iptv_path,'a+')
  
         user_id = "user id"
         ts = str(time.time())
@@ -57,7 +59,8 @@ class ServiceSimulator:
         iptv_file.close()
 
     def generate_broadband(self):
-        bb_file = open(os.path.dirname(__file__)+self.bb_path,'a+')
+        #bb_file = open(os.path.dirname(__file__)+self.bb_path,'a+')
+        bb_file = open(self.bb_path,'a+')
 
         customer_info = "customer info"
         ts = str(time.time())
@@ -81,7 +84,7 @@ class ServiceSimulator:
 obj = ServiceSimulator()
 indicator = "Simulator is working."
 print indicator
-records = 0
+records = 0 
 while(True):
     print "Record:",records
     obj.generate()
