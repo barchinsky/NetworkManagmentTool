@@ -5,14 +5,9 @@ from pysnmp.proto import api
 import cx_Oracle
 import logging
 import sys
-<<<<<<< Updated upstream
-sys.path.append('./src')
-=======
-
-sys.path.append("src/")
+sys.path.append("./src")
 
 from LogManager import *
->>>>>>> Stashed changes
 from ConfigManager import ConfigManager
 
 
