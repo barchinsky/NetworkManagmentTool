@@ -9,8 +9,7 @@ class ConfigManager():
 		self.config.read(self.getConfFilePath())
 
 	def getConfFilePath(self):
-		dirname = os.path.dirname(__file__)
-		if dirname == "src":
+		if os.path.exists('../conf/'):
 			return '../conf/configs.cfg'
 		else:
 			return 'conf/configs.cfg' 
