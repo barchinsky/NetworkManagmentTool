@@ -1,13 +1,5 @@
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-SQL*Loader: Release 11.2.0.3.0 - Production on Fri Aug 9 13:23:51 2013
-=======
-SQL*Loader: Release 11.2.0.3.0 - Production on Thu Aug 8 17:08:19 2013
->>>>>>> Stashed changes
-=======
-SQL*Loader: Release 11.2.0.3.0 - Production on Mon Aug 12 13:32:13 2013
->>>>>>> Stashed changes
+SQL*Loader: Release 11.2.0.3.0 - Production on Tue Aug 13 12:35:50 2013
 
 Copyright (c) 1982, 2011, Oracle and/or its affiliates.  All rights reserved.
 
@@ -43,15 +35,7 @@ TIMESTAMP_END                        NEXT     *   ,       CHARACTER
 
 
 Table VOIP:
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  16 Rows successfully loaded.
-=======
-  77 Rows successfully loaded.
->>>>>>> Stashed changes
-=======
-  8 Rows successfully loaded.
->>>>>>> Stashed changes
+  161 Rows successfully loaded.
   0 Rows not loaded due to data errors.
   0 Rows not loaded because all WHEN clauses were failed.
   0 Rows not loaded because all fields were null.
@@ -61,30 +45,12 @@ Space allocated for bind array:                 165120 bytes(64 rows)
 Read   buffer bytes: 1048576
 
 Total logical records skipped:          0
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-Total logical records read:            16
+Total logical records read:           161
 Total logical records rejected:         0
 Total logical records discarded:        0
 
-Run began on Fri Aug 09 13:23:51 2013
-Run ended on Fri Aug 09 13:23:51 2013
-=======
-Total logical records read:            77
-Total logical records rejected:         0
-Total logical records discarded:        0
+Run began on Tue Aug 13 12:35:50 2013
+Run ended on Tue Aug 13 12:35:50 2013
 
-Run began on Thu Aug 08 17:08:19 2013
-Run ended on Thu Aug 08 17:08:20 2013
->>>>>>> Stashed changes
-=======
-Total logical records read:             8
-Total logical records rejected:         0
-Total logical records discarded:        0
-
-Run began on Mon Aug 12 13:32:13 2013
-Run ended on Mon Aug 12 13:32:13 2013
->>>>>>> Stashed changes
-
-Elapsed time was:     00:00:00.07
+Elapsed time was:     00:00:00.08
 CPU time was:         00:00:00.02

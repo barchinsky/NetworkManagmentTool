@@ -7,7 +7,7 @@ import datetime
 import random
 import time
 import cx_Oracle
-from print_cursor import PrintCursor
+#from print_cursor import PrintCursor
 
 class TrapGen:
     def __init__(self):
@@ -23,9 +23,9 @@ class TrapGen:
 
         ntfOrg.sendNotification(
         ntforg.CommunityData('public'),
-        ntforg.UdpTransportTarget(('192.168.111.118', 5050)),
+        ntforg.UdpTransportTarget(('192.168.111.108', 5050)),
         'trap',
-        ntforg.MibVariable('SNMPv2-MIB', 'system'),
+        ntforg.MibVariable('SNMPv2-MIB', 'sysLocation'),
         ('1.3.6.1.6.3.1.1.5.4', v2c.OctetString(self.data)))
 
         print "Trap has been sent:" + ' ' + self.data

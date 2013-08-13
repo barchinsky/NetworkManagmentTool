@@ -5,9 +5,12 @@ from pysnmp.proto import api
 import cx_Oracle
 import logging
 import sys
-sys.path.append("./src")
+
+
+sys.path.append("src/")
 
 from LogManager import *
+
 from ConfigManager import ConfigManager
 
 

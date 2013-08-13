@@ -37,7 +37,7 @@ class Trap_statistic(QtGui.QWidget):
         #self.le = QLineEdit(self)
         #self.le.setGeometry(1,200,75,35)
         #self.vbox.addWidget(self.le,4,0)
-
+        self.select_trap()
 
         self.connect(self.combo, QtCore.SIGNAL('activated(QString)'),self.select_trap)
 
@@ -49,28 +49,22 @@ class Trap_statistic(QtGui.QWidget):
         print Id
         self.cur.execute("select TRAP,TIMESTAMP from TRAP WHERE IDDEVICE=:Id",{'Id':Id})
         data = self.cur.fetchall()
-        print data
+        #print data
         #self.cur.execute("select TIMESTAMP from TRAP WHERE IDDEVICE=:Id",{'Id':Id})
         #tmp = self.cur.fetchall()
-
+        self.combo2.clear()
         if data == []:
             print 'No such device in DB'
         else:
             print 'Errors: '
             for row in data :
-                #print row[0]
+                print row[0]
                 if row[0] in trap:
-                    print row[1]
+                    #print row[1]
 
                     self.combo2.addItem(str(row[0])+" -- "+time.ctime(row[1]))
+
                     #tmp.append(row[0])
-        '''print tmp
-        for el in tmp:
-            #i=str(row[0])
-            self.combo2.addItems(str(el)+"\n")
-            #i = '''
-
-
 
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)

@@ -27,13 +27,21 @@ class ComboBoxBasic(QtGui.QWidget):
         self.setLayout(self.vbox)
 
         # Create a combo box and add it to our layout
+        self.label = QtGui.QLabel("service",self)
+        self.vbox.addWidget(self.label,1,1)
         self.combo = QtGui.QComboBox()
         self.vbox.addWidget(self.combo,1,0)
         self.combo2 = QtGui.QComboBox()
         self.vbox.addWidget(self.combo2,2,0)
+        self.label2 = QtGui.QLabel("metric",self)
+        self.vbox.addWidget(self.label2,2,1)
+
 
         self.combo3 = QtGui.QComboBox()
         self.vbox.addWidget(self.combo3,3,0)
+        self.label3 = QtGui.QLabel("time",self)
+        self.vbox.addWidget(self.label3,3,1)
+
 
         self.combo4 = QtGui.QComboBox(self)
         self.vbox.addWidget(self.combo4,4,1)
@@ -72,6 +80,9 @@ class ComboBoxBasic(QtGui.QWidget):
         self.le = QLineEdit(self)
         #self.le.setGeometry(1,200,75,35)
         self.vbox.addWidget(self.le,4,0)
+        
+        i=str(self.combo4.currentText())+"("+str(self.combo2.currentText())+")"
+        self.le.setText(str(i))
       
         self.connect(self.combo2, QtCore.SIGNAL('activated(QString)'),self.edit)
 
