@@ -9,7 +9,8 @@ class ConfigManager():
 		self.config.read(self.getConfFilePath())
 
 	def getConfFilePath(self):
-		if os.path.exists('../conf/'):
+		dirname = os.path.dirname(__file__)
+		if dirname == "src":
 			return '../conf/configs.cfg'
 		else:
 			return 'conf/configs.cfg' 
@@ -43,9 +44,7 @@ class ConfigManager():
 		self.config.set('service', 'voip', '../data/voip.csv')
 		self.config.set('service', 'bb', '../data/bb.csv')
 
-
-		with open(self.getConfFilePath(), 'wb') as configfile:
-
+		with open('conf/configs.cfg', 'wb') as configfile:
 			self.config.write(configfile)
 
 	def PrintConfFile(self):

@@ -1,0 +1,138 @@
+INFO: 2013-08-12 17:38:29,622 Metric managment widget started.
+INFO: 2013-08-12 17:38:29,728 Widget closed.
+INFO: 2013-08-12 17:38:29,728 Gui started.
+INFO: 2013-08-12 17:38:54,585 Metric managment widget started.
+INFO: 2013-08-12 17:38:54,692 Widget closed.
+INFO: 2013-08-12 17:38:54,692 Gui started.
+INFO: 2013-08-12 17:41:48,239 Metric managment widget started.
+INFO: 2013-08-12 17:41:48,352 Widget closed.
+INFO: 2013-08-12 17:41:48,352 Gui started.
+INFO: 2013-08-12 17:44:27,986 Metric managment widget started.
+INFO: 2013-08-12 17:44:28,090 Widget closed.
+INFO: 2013-08-12 17:44:28,090 Gui started.
+INFO: 2013-08-12 17:45:54,471 Metric managment widget started.
+INFO: 2013-08-12 17:45:54,619 Widget closed.
+INFO: 2013-08-12 17:45:54,660 Gui started.
+INFO: 2013-08-13 10:27:45,419 Gui started.
+INFO: 2013-08-13 10:33:21,694 Gui started.
+INFO: 2013-08-13 10:36:10,110 Gui started.
+INFO: 2013-08-13 10:37:30,389 Metric managment widget started.
+INFO: 2013-08-13 11:03:11,487 Metric managment widget started.
+INFO: 2013-08-13 11:05:44,426 Metric managment widget started.
+WARNING: 2013-08-13 11:05:44,445 Databace connection refused.
+ORA-12541: TNS:no listener
+
+INFO: 2013-08-13 11:06:21,089 Metric managment widget started.
+WARNING: 2013-08-13 11:06:21,106 Databace connection refused.
+ORA-12541: TNS:no listener
+
+INFO: 2013-08-13 11:13:08,537 Metric managment widget started.
+WARNING: 2013-08-13 11:13:08,555 Databace connection refused.
+ORA-12541: TNS:no listener
+
+INFO: 2013-08-13 11:42:57,375 Metric managment widget started.
+WARNING: 2013-08-13 11:42:57,487 Databace connection refused.
+ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+
+INFO: 2013-08-13 11:45:03,658 Metric managment widget started.
+INFO: 2013-08-13 11:45:05,030 Widget closed.
+INFO: 2013-08-13 11:45:05,686 Gui started.
+INFO: 2013-08-13 11:45:13,948 Trap widget start.
+INFO: 2013-08-13 11:45:20,431 Metric widget start.
+INFO: 2013-08-13 11:47:20,242 Metric managment widget started.
+INFO: 2013-08-13 11:47:20,356 Widget closed.
+INFO: 2013-08-13 11:47:54,233 Metric managment widget started.
+INFO: 2013-08-13 11:47:54,349 Widget closed.
+INFO: 2013-08-13 11:47:54,465 Gui started.
+INFO: 2013-08-13 11:48:08,144 Metric managment widget started.
+INFO: 2013-08-13 11:48:08,250 Widget closed.
+INFO: 2013-08-13 11:48:08,376 Gui started.
+INFO: 2013-08-13 11:48:25,728 Metric managment widget started.
+INFO: 2013-08-13 11:48:25,827 Widget closed.
+INFO: 2013-08-13 11:48:25,943 Gui started.
+INFO: 2013-08-13 11:49:19,786 Metric managment widget started.
+INFO: 2013-08-13 11:49:19,894 Widget closed.
+INFO: 2013-08-13 11:49:20,019 Gui started.
+INFO: 2013-08-13 11:50:41,359 Metric managment widget started.
+INFO: 2013-08-13 11:50:41,452 Widget closed.
+INFO: 2013-08-13 11:50:41,567 Gui started.
+INFO: 2013-08-13 11:51:32,065 Metric managment widget started.
+INFO: 2013-08-13 11:51:32,172 Widget closed.
+INFO: 2013-08-13 11:51:32,287 Gui started.
+INFO: 2013-08-13 11:51:33,835 Services started.
+INFO: 2013-08-13 11:52:27,257 Metric managment widget started.
+INFO: 2013-08-13 11:52:27,356 Widget closed.
+INFO: 2013-08-13 11:52:27,472 Gui started.
+INFO: 2013-08-13 11:52:28,690 Services started.
+INFO: 2013-08-13 11:53:42,919 Metric managment widget started.
+INFO: 2013-08-13 11:53:43,031 Widget closed.
+INFO: 2013-08-13 11:53:43,147 Gui started.
+INFO: 2013-08-13 11:53:44,293 Services started.
+INFO: 2013-08-13 11:54:58,923 Metric managment widget started.
+INFO: 2013-08-13 11:54:59,065 Widget closed.
+INFO: 2013-08-13 11:54:59,181 Gui started.
+INFO: 2013-08-13 11:55:00,520 Services started.
+INFO: 2013-08-13 11:56:02,444 Metric managment widget started.
+INFO: 2013-08-13 11:56:02,542 Widget closed.
+INFO: 2013-08-13 11:56:02,658 Gui started.
+INFO: 2013-08-13 11:57:44,930 Metric managment widget started.
+INFO: 2013-08-13 11:57:45,065 Widget closed.
+INFO: 2013-08-13 11:57:45,189 Gui started.
+INFO: 2013-08-13 11:57:46,399 Services started.
+INFO: 2013-08-13 11:58:33,468 Metric managment widget started.
+INFO: 2013-08-13 11:58:33,578 Widget closed.
+INFO: 2013-08-13 11:58:33,694 Gui started.
+INFO: 2013-08-13 11:58:35,851 Services started.
+INFO: 2013-08-13 11:59:24,596 Metric managment widget started.
+INFO: 2013-08-13 11:59:24,756 Widget closed.
+INFO: 2013-08-13 11:59:24,922 Gui started.
+INFO: 2013-08-13 11:59:26,040 Services started.
+INFO: 2013-08-13 11:59:37,123 Metric managment widget started.
+INFO: 2013-08-13 11:59:37,301 Widget closed.
+INFO: 2013-08-13 11:59:37,459 Gui started.
+INFO: 2013-08-13 11:59:38,336 Services started.
+INFO: 2013-08-13 12:00:40,245 Metric managment widget started.
+INFO: 2013-08-13 12:00:40,336 Widget closed.
+INFO: 2013-08-13 12:00:40,465 Gui started.
+INFO: 2013-08-13 12:00:41,699 Services started.
+INFO: 2013-08-13 12:01:45,241 Metric managment widget started.
+INFO: 2013-08-13 12:01:45,339 Widget closed.
+INFO: 2013-08-13 12:01:45,496 Gui started.
+INFO: 2013-08-13 12:01:46,794 Services started.
+INFO: 2013-08-13 12:11:23,465 Metric managment widget started.
+INFO: 2013-08-13 12:11:23,582 Widget closed.
+INFO: 2013-08-13 12:11:23,697 Gui started.
+INFO: 2013-08-13 12:11:25,148 Services started.
+INFO: 2013-08-13 12:33:33,699 Metric managment widget started.
+INFO: 2013-08-13 12:33:33,838 Widget closed.
+INFO: 2013-08-13 12:33:33,946 Gui started.
+INFO: 2013-08-13 12:33:36,401 Services started.
+INFO: 2013-08-13 12:34:55,979 Metric managment widget started.
+INFO: 2013-08-13 12:34:56,078 Widget closed.
+INFO: 2013-08-13 12:34:56,202 Gui started.
+INFO: 2013-08-13 12:34:57,551 Services started.
+INFO: 2013-08-13 12:39:53,627 Metric managment widget started.
+INFO: 2013-08-13 12:39:53,734 Widget closed.
+INFO: 2013-08-13 12:39:53,841 Gui started.
+INFO: 2013-08-13 12:39:54,990 Services started.
+INFO: 2013-08-13 12:40:02,508 Trap widget start.
+INFO: 2013-08-13 12:40:12,745 Statistic widget start.
+INFO: 2013-08-13 12:40:26,573 Metric widget start.
+INFO: 2013-08-13 12:49:33,156 Metric managment widget started.
+INFO: 2013-08-13 12:49:33,261 Widget closed.
+INFO: 2013-08-13 12:49:33,385 Gui started.
+INFO: 2013-08-13 12:49:55,987 Services started.
+INFO: 2013-08-13 12:50:00,672 Trap widget start.
+INFO: 2013-08-13 12:52:23,120 Metric managment widget started.
+INFO: 2013-08-13 12:52:23,242 Widget closed.
+INFO: 2013-08-13 12:52:23,369 Gui started.
+INFO: 2013-08-13 12:52:25,029 Trap widget start.
+INFO: 2013-08-13 12:53:40,238 Metric managment widget started.
+INFO: 2013-08-13 12:53:40,337 Widget closed.
+INFO: 2013-08-13 12:53:40,494 Gui started.
+INFO: 2013-08-13 12:53:42,861 Services started.
+INFO: 2013-08-13 12:53:46,710 Trap widget start.
+INFO: 2013-08-13 12:53:52,129 Statistic widget start.
+INFO: 2013-08-13 12:54:07,236 Metric widget start.
+INFO: 2013-08-13 12:54:10,247 Widget closed.
+INFO: 2013-08-13 12:54:30,944 Metric widget start.

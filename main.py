@@ -5,6 +5,10 @@ import sys
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 import cx_Oracle
+import subprocess
+from st_view import *
+from trap_view import *
+
 
 sys.path.append("src/")
 
@@ -13,11 +17,89 @@ from LogManager import *
 class MyMainWindow(QMainWindow):
     def __init__(self, parent=None):
         super(MyMainWindow,self).__init__(parent)
-        self.form_widget = MetricManagmentWidget(self)
+        #self.form_widget = MetricManagmentWidget(self)
+        self.form_widget = MainMenuWidget(self)
         self.setCentralWidget(self.form_widget)
         self.setWindowTitle('Metric manager')
         Log("Gui started.")
 
+        self.connect(self.form_widget.close,SIGNAL("clicked()"),self,SLOT("close()"))
+
+class MainMenuWidget(QWidget):
+    def __init__(self,parent):
+        super(MainMenuWidget,self).__init__(parent)
+
+        self.metric_widget = MetricManagmentWidget()
+        self.statistic_widget = ComboBoxBasic()
+        self.trap_widget = Trap_statistic()
+
+        self.layout = QGridLayout()
+
+        self.start_service_btn = QPushButton("Start service")
+        self.show_device_info_btn = QPushButton("Show device info(no widget yet)")
+        self.show_device_traps_btn = QPushButton("Show traps")
+        self.show_statistic_btn = QPushButton("Show statistic")
+        self.metric_btn = QPushButton("Metric")
+        self.close = QPushButton("Exit")
+
+        self.layout.addWidget(self.start_service_btn)
+        self.layout.addWidget(self.show_device_info_btn)
+        self.layout.addWidget(self.show_device_traps_btn)
+        self.layout.addWidget(self.show_statistic_btn)
+        self.layout.addWidget(self.metric_btn)
+        self.layout.addWidget(self.close)
+
+        self.setLayout(self.layout)
+
+        self.connect(self.metric_btn,SIGNAL("clicked()"),self,SLOT("start_metric_widget()"))
+        self.connect(self.show_statistic_btn,SIGNAL("clicked()"),self,SLOT("start_statistic_widget()"))
+        self.connect(self.show_device_traps_btn,SIGNAL("clicked()"),self,SLOT("start_trap_widget()"))
+        self.connect(self.start_service_btn,SIGNAL("clicked()"),self,SLOT("start_services()"))
+
+    @pyqtSlot()
+    def start_metric_widget(self):
+        try:
+            self.metric_widget.show()
+            Log("Metric widget start.")
+        except Exception,e:
+            Log("Metric widget start failed."+e,1)
+
+
+    @pyqtSlot()
+    def start_statistic_widget(self):
+        try:
+            self.statistic_widget.show()
+            Log("Statistic widget start.")
+        except Exception,e:
+            Log("Statistic widget start failed."+e,1)
+
+    @pyqtSlot()
+    def start_trap_widget(self):
+        try:
+            self.trap_widget.show()
+            Log("Trap widget start.")
+        except Exception,e:
+            Log("Trap widget start failed."+e,1)
+
+
+    @pyqtSlot()
+    def start_services(self):
+        try:
+            #subprocess.Popen("src/start_services.sh",shell=True)
+            Log("Services started.")
+            print "Services started succesfull:"
+            self.show_info("Services started succesfull.")
+            self.start_service_btn.setEnabled(False)
+        except Exception,e:
+            print "Application close."
+            Log("Start services failed."+e,1)
+            sys.exit()
+
+    def show_info(self,e):
+        msgBox = QMessageBox()
+        msgBox.setText(str(e))
+        msgBox.setStandardButtons(QMessageBox.Ok)
+        ret = msgBox.exec_();
 
 class AddMetricWidget(QWidget):
     def __init__(self,service_type,service_available_metric=""):
@@ -28,10 +110,10 @@ class AddMetricWidget(QWidget):
             self.con = cx_Oracle.connect('orcdb/passw0rd@192.168.111.138/orcl')
         except Exception,e:
             print e
-            Log("Databace connection refused.\n"+e,1)
+            Log("Databace connection refused.\n"+str(e),1)
+            sys.exit()
 
         self.cur = self.con.cursor()
-
 
         self.layout = QVBoxLayout()
         self._service_type = service_type
@@ -105,8 +187,8 @@ class AddMetricWidget(QWidget):
 
 
 class MetricManagmentWidget(QWidget):
-    def __init__(self,parent):
-        super(MetricManagmentWidget,self).__init__(parent)
+    def __init__(self):
+        super(MetricManagmentWidget,self).__init__()
         Log("Metric managment widget started.")
         self.iptv_m = []
         self.bb_m = []
@@ -121,7 +203,8 @@ class MetricManagmentWidget(QWidget):
             self.con = cx_Oracle.connect('orcdb/passw0rd@192.168.111.138/orcl')
         except Exception,e:
             print e
-            Log("Databace connection refused.\n"+e,1)
+            Log("Databace connection refused.\n"+str(e),1)
+            sys.exit()
 
         self.cur = self.con.cursor()
 
@@ -144,6 +227,7 @@ class MetricManagmentWidget(QWidget):
             self.action_type_combo.addItem(action)
 
         self.wid = AddMetricWidget("",[])
+        self.statistic_widget = ComboBoxBasic()
 
         self.l_min = QLineEdit()
         self.l_max = QLineEdit()
@@ -191,8 +275,6 @@ class MetricManagmentWidget(QWidget):
             self.layout.addWidget(self.ok)
             
  
-
-
     @pyqtSlot(int)
     def fill_metric_combo(self,opt):
         self.action_type_combo.setCurrentIndex(0)
@@ -238,6 +320,9 @@ class MetricManagmentWidget(QWidget):
 
             self.connect(self.wid.cancel,SIGNAL("clicked()"),self,SLOT("enable()"))
             self.connect(self.wid.add,SIGNAL("clicked()"),self,SLOT("enable()"))
+        if choice==3:
+            self.statistic_widget.show()
+            print "View option choosed"
 
     def get_iptv_metrics(self):
         self.cur.execute("select * from IPTV")

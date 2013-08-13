@@ -86,7 +86,7 @@ indicator = "Simulator is working."
 print indicator
 records = 0 
 while(True):
-    print "Record:",records
+    #print "Record:",records
     obj.generate()
     time.sleep(1)
     records += 1

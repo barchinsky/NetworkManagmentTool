@@ -11,12 +11,12 @@ class ComboBoxBasic(QtGui.QWidget):
     """
 
     def __init__(self):
-
+        super(ComboBoxBasic,self).__init__()
         self.obj = Statistic()
         self.text = ''
         # create GUI
-        QtGui.QMainWindow.__init__(self)
-        self.setWindowTitle('VIEW STATISTIC')
+        #QtGui.QMainWindow.__init__(self)
+        #self.setWindowTitle('VIEW STATISTIC')
         # Set the window dimensions
         #self.resize(250,290)]
         self.setFixedSize(250,290)
@@ -117,9 +117,9 @@ class ComboBoxBasic(QtGui.QWidget):
             for el in data:
                self.combo2.addItems(el)
 
-if __name__ == "__main__":
-    app = QtGui.QApplication(sys.argv)
-    obj = ComboBoxBasic()
-    obj.show()
-    app.exec_()
+#if __name__ == "__main__":
+#    app = QtGui.QApplication(sys.argv)
+#    obj = ComboBoxBasic()
+#    obj.show()
+#    app.exec_()
 

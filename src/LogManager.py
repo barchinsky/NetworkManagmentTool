@@ -11,9 +11,9 @@ class Log:
         FORMAT = "%(levelname)s: %(asctime)-15s %(message)s"
         logging.basicConfig(filename=LOG_FILENAME,level=logging.DEBUG, format = FORMAT)
 
-        if _log_type == 0: #info debug
+        if _log_type == 0: #info
             logging.info(_msg)
-        elif _log_type == 1:
+        elif _log_type == 1: # warning
             logging.warning(_msg)
 
     def mylog(self,msg,log_type):

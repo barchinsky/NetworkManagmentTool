@@ -13,7 +13,6 @@ class TrapGen:
     def __init__(self):
         self.data = ""
         self.dictionary = {}
-        self.dev_cilly = self.getDeviceCLLI()
 
         self.getDictionary()
 
@@ -24,20 +23,20 @@ class TrapGen:
 
         ntfOrg.sendNotification(
         ntforg.CommunityData('public'),
-        ntforg.UdpTransportTarget(('192.168.111.108', 5050)),
+        ntforg.UdpTransportTarget(('192.168.111.118', 5050)),
         'trap',
-        ntforg.MibVariable('SNMPv2-MIB', 'sysLocation'),
+        ntforg.MibVariable('SNMPv2-MIB', 'system'),
         ('1.3.6.1.6.3.1.1.5.4', v2c.OctetString(self.data)))
 
-        #print "Trap has been sent:" + ' ' + self.data
+        print "Trap has been sent:" + ' ' + self.data
 
     def generate(self):
         ts = time.time()
         #st = datetime.datetime#.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
 
-        #dev_id = ('UA5120001RT','UA5120002RT','UA5120003RT','UA5120004RT')
+        dev_id = ('UA5120001RT','UA5120002RT','UA5120003RT','UA5120004RT')
 
-        self.data = str(self.dev_cilly[ random.randint( 0,len(self.dev_cilly)-1 ) ]) +'|'+ str(self.dictionary[random.randint(0,13)])+'|'+str(ts)
+        self.data = str(dev_id[random.randint(0,3)]) +'|'+ str(self.dictionary[random.randint(0,13)])+'|'+str(ts)
 
     def getDictionary(self):
         with open("data/traps.txt",'r') as infile:
@@ -52,11 +51,8 @@ class TrapGen:
         data = []
         cur = con.cursor()
         cur.execute("select ID from SYSTEM.DEVICE")
-        #data = cur.fetchall()
-        for item in cur.fetchall():
-            #print item[0]
-            data.append(item[0])
-        return data
+        data = cur.fetchall()
+        print data[0]
 
 if __name__ == '__main__':
     obj = TrapGen()

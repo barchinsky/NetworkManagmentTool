@@ -7,12 +7,12 @@ import cx_Oracle
 class Trap_statistic(QtGui.QWidget):
 
     def __init__(self):
-
+        super(Trap_statistic,self).__init__()
         self.obj = Statistic()
         self.text = ''
         # create GUI
-        QtGui.QMainWindow.__init__(self)
-        self.setWindowTitle('VIEW STATISTIC')
+        #QtGui.QMainWindow.__init__(self)
+        #self.setWindowTitle('VIEW STATISTIC')
         # Set the window dimensions
         #self.resize(250,290)]
         self.setFixedSize(350,90)
@@ -63,12 +63,18 @@ class Trap_statistic(QtGui.QWidget):
                     #print row[1]
 
                     self.combo2.addItem(str(row[0])+" -- "+time.ctime(row[1]))
-
                     #tmp.append(row[0])
+        '''print tmp
+        for el in tmp:
+            #i=str(row[0])
+            self.combo2.addItems(str(el)+"\n")
+            #i = '''
 
-if __name__ == "__main__":
-    app = QtGui.QApplication(sys.argv)
-    obj = Trap_statistic()
-    obj.show()
-    app.exec_()
+'''---------------- debug zone -----------------------'''
+
+#if __name__ == "__main__":
+#    app = QtGui.QApplication(sys.argv)
+#    obj = Trap_statistic()
+#    obj.show()
+#    app.exec_()
 
