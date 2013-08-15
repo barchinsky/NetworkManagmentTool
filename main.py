@@ -85,7 +85,7 @@ class MainMenuWidget(QWidget):
     @pyqtSlot()
     def start_services(self):
         try:
-            #subprocess.Popen("src/start_services.sh",shell=True)
+            subprocess.Popen("src/start_services.sh",shell=True)
             Log("Services started.")
             print "Services started succesfull:"
             self.show_info("Services started succesfull.")
