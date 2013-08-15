@@ -7,6 +7,7 @@ import os
 import sys
 import cx_Oracle
 from ConfigManager import ConfigManager
+import subprocess
 
 class ServiceSimulator:
     def __init__(self):
@@ -81,12 +82,16 @@ class ServiceSimulator:
         self.generate_iptv()
         self.generate_broadband()
 
-obj = ServiceSimulator()
-indicator = "Simulator is working."
-print indicator
-records = 0 
-while(True):
-    #print "Record:",records
-    obj.generate()
-    time.sleep(1)
-    records += 1
+if __name__ == "__main__":
+
+    obj = ServiceSimulator()
+    indicator = "Simulator is working."
+    print indicator
+    records = 0 
+    for i in xrange(100):
+        #print "Record:",records
+        obj.generate()
+        records += 1
+    subprocess.Popen("/home/max/TF/NetworkManagmentTool/src/sqlldr.sh",shell=True)
+
+
