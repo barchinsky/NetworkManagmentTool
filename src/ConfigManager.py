@@ -13,7 +13,7 @@ class ConfigManager():
 		if dirname == "src":
 			return '../conf/configs.cfg'
 		else:
-			return 'conf/configs.cfg' 
+			return '/home/max/TF/NetworkManagmentTool/conf/configs.cfg' 
 
 	def CreateConfFile(self):
 		#create config file
@@ -24,7 +24,7 @@ class ConfigManager():
 		self.config.set('logging', 'trap_log', 'data/trap.log')
 
 		self.config.add_section('trap')
-		self.config.set('trap', 'ip', "192.168.111.124")
+		self.config.set('trap', 'ip', "192.168.111.126")
 		self.config.set('trap', 'trap_list', 'data/traps.txt')
 		self.config.set('trap', 'connection', 'orcdb/passw0rd@192.168.111.138/orcl')
 
