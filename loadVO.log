@@ -1,0 +1,9 @@
+
+SQL*Loader: Release 11.2.0.3.0 - Production on Wed Aug 14 13:27:23 2013
+
+Copyright (c) 1982, 2011, Oracle and/or its affiliates.  All rights reserved.
+
+SQL*Loader-350: Syntax error at line 1.
+Expecting keyword LOAD, found "ORACLE_HOME".
+ORACLE_HOME=/usr/lib/oracle/11.2/client64
+^
