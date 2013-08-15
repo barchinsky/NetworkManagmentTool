@@ -6,7 +6,7 @@ import cx_Oracle
 import logging
 import sys
 
-sys.path.append("src/")
+sys.path.append("/home/max/TF/NetworkManagmentTool/src/")
 
 from LogManager import *
 from ConfigManager import ConfigManager
@@ -17,7 +17,6 @@ cm = ConfigManager()
 def GetTrapData(varBinds):
     
     for val in varBinds:
-      
         tmp=val.prettyPrint()
         if tmp.find("string-value")!=-1:
             i = tmp.rfind("string-value")
@@ -83,7 +82,7 @@ transportDispatcher.registerRecvCbFun(cbFun)
 
 # UDP/IPv4
 transportDispatcher.registerTransport(
-    udp.domainName, udp.UdpSocketTransport().openServerMode(("192.168.111.108", 5050))
+    udp.domainName, udp.UdpSocketTransport().openServerMode((cm.getTrapIp(), 5050))
 )
 
 transportDispatcher.jobStarted(1)
